@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import org.testng.Assert;
 
+import com.pages.UserPage;
 import com.parameters.PropertyReader;
 import com.setup.BaseSteps;
 
@@ -12,53 +13,30 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Profile extends BaseSteps {
+public class Profile extends UserPage {
+	UserPage userpage=new UserPage();
 	
 	@Given("the user lauches the browser")
 	public void the_user_lauches_the_browser() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		launchBrowser();
-		System.out.println("Browse launched Successfully");
+		userpage.launchBrowserPage();
 		
 	}
 
 	@When("the user navigates to the application URL")
 	public void the_user_navigates_to_the_application_url() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		String currentURL=driver.getCurrentUrl();
-		Assert.assertNotNull("The current Url is null",currentURL);
-		Assert.assertTrue(!currentURL.trim().isEmpty());
-        System.out.println("Navigated to application URL: " + currentURL);
+		userpage.navigateToTheApplication();
 
 		
 	}
 
 	@Then("the homepage should load successfully")
 	public void the_homepage_should_load_successfully() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		 String title = driver.getTitle();
-	        Assert.assertNotNull("Page title is null!", title);
-	        Assert.assertFalse(title.trim().isEmpty());
-	        System.out.println("Homepage loaded successfully with title: " + title);
+	    		userpage.verifyHomepageLoaded();
 	}
 
 	@And("the application title should be displayed")
 	public void the_application_title_should_be_displayed() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		 Properties prop = PropertyReader.readProperty();
-	        //String expectedTitle = prop.getProperty("sourceTitle");
-
-	        String actualTitle = driver.getTitle();
-	    
-	        System.out.println("Application title verified: " + actualTitle);
-
-	        //Close the browser after verification
-	        //driver.quit();
-	        System.out.println("Browser closed successfully.");
+		userpage.verifyApplicationTitle();
 	        
 
 	}
@@ -67,11 +45,27 @@ public class Profile extends BaseSteps {
 	public void the_plot_is_displayed() {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
+		userpage.verifyPlotDisplayed();
+		
 		
 	}
+	
+	@Then("the plot is clickable")
+	public void the_plot_is_clickable() {
+	    // Write code here that turns the phrase above into concrete actions
+	    //throw new io.cucumber.java.PendingException();
+userpage.verifyPlotClickable();
 
 	
+	}
 	
+	@When("user click on the Plots in Gated Community")
+	public void user_click_on_the_plots_in_gated_community() {
+	    // Write code here that turns the phrase above into concrete actions
+	    //throw new io.cucumber.java.PendingException();
+		userpage.clickOnPltsInGatedCommunity();
+	}
+
 	
 
 }

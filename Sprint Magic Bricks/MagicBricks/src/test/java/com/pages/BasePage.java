@@ -15,12 +15,12 @@ public class BasePage {
 	            for (String handle : allHandles) {
 	                if (!handle.equals(currentHandle)) {
 	                    driver.switchTo().window(handle);
-	                    System.out.println("✅ Switched to new tab: " + driver.getTitle());
+	                    System.out.println("Switched to new tab: " + driver.getTitle());
 	                    break;
 	                }
 	            }
 	        } catch (Exception e) {
-	            System.out.println("❌ Error while switching to new tab: " + e.getMessage());
+	            System.out.println("Error while switching to new tab: " + e.getMessage());
 	        }
 	    }
 	}

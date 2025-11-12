@@ -48,6 +48,12 @@ public class BaseSteps {
             e.printStackTrace();
         }
     }
+    
+    
+    public static void closeBrowser() {
+        driver.quit();
+        System.out.println("Browser closed successfully!");
+    }
 	
 	
 	

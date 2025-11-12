@@ -18,7 +18,7 @@ public class HomePage extends BaseSteps{
 	@FindBy(id="tabPLOT")
 	private WebElement plotclick;
 	
-	@FindBy(css="h1.strip-red")
+	@FindBy(xpath="//h1[text()='Presenting Plots and Land in Bangalore by Magicbricks']")
 	private WebElement displayPlotInBangalore;
 	
 	@FindBy(xpath="//div[@class='mb-home__collection__card--content'][.//div[text()='East facing Plots']]")
