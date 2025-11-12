@@ -14,6 +14,7 @@ public class BasePage {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        
     }
 
     public void clickElement(WebElement element) {
@@ -43,5 +44,6 @@ public class BasePage {
 
     public String getPageTitle() {
         return driver.getTitle();
+        
     }
 }
