@@ -2,15 +2,20 @@ package com.setup;
 
 import java.util.Properties;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.parameters.PropertyReader;
 
 public class BaseSteps {
 	public static WebDriver driver;
+	protected static WebDriverWait wait;
+    protected static JavascriptExecutor js;
+
     public static void launchBrowser()
     {
         Properties prop = PropertyReader.readProperty();

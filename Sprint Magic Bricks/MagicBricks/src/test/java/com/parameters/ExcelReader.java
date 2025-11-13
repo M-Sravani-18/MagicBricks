@@ -13,8 +13,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
-	
-
 	    public static List<String[]> readExcelData(String filePath, String sheetName) {
 	        List<String[]> data = new ArrayList<>();
 
@@ -49,71 +47,79 @@ public class ExcelReader {
 
 	        return data;
 	    }
-	}
-
-	
-//	
-//	   public static List<String[]> readExcelData(String filePath, String sheetName) {
-//	        List<String[]> data = new ArrayList<>();
-//	        try (FileInputStream fis = new FileInputStream(filePath);
-//	             Workbook workbook = new XSSFWorkbook(fis)) {
-//
-//	            Sheet sheet = workbook.getSheet(sheetName);
-//	            DataFormatter fmt = new DataFormatter();
-//
-//	            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-//	                Row row = sheet.getRow(i);
-//	                if (row == null) continue;
-//	                String city = fmt.formatCellValue(row.getCell(0));
-//	                String budget = fmt.formatCellValue(row.getCell(1));
-//	                data.add(new String[]{city, budget});
-//	            }
-//	        } catch (IOException e) {
-//	            e.printStackTrace();
-//	        }
-//	        return data;
-//	    }
-//	
-	
 	
 
-//	public static String readCell(String filePath,String sheetName, int rowIndex, int colIndex) {
-//		String cellValue="";
-//		 FileInputStream fis = null;
-//	        Workbook workbook = null;
+	   
+	    public static String getLocalityByRow(String filePath, int sheetIndex, int rowIndex) {
+			try (FileInputStream fis = new FileInputStream(filePath);
+					Workbook workbook = new XSSFWorkbook(fis)) {
+	 
+				Sheet sheet = workbook.getSheetAt(sheetIndex);
+				Row row = sheet.getRow(rowIndex);
+				if (row != null) {
+					Cell cell = row.getCell(0);
+					if (cell != null) {
+						return cell.getStringCellValue().trim();
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	 
+			return null;
+		}
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+		
+		
+		
+		
+		
+		
+		
+//		
+//		public List<String> getRowData(int sheetNo, int rowIndex) throws Exception {
+//		    List<String> rowData = new ArrayList<>();
+//		    try (FileInputStream fis = new FileInputStream(excelPath);
+//		         Workbook workbook = new XSSFWorkbook(fis)) {
+//		        Sheet sheet = workbook.getSheetAt(sheetNo);
+//		        Row row = sheet.getRow(rowIndex);
+//		        if (row != null) {
+//		            for (Cell cell : row) {
+//		                String value = cell.toString().trim();
+//		                if (!value.isEmpty()) {
+//		                    rowData.add(value);
+//		                }
+//		            }
+//		        }
+//		    }
+//		    return rowData;
+//		}
+
+
+//public List<String> getColumnData(int sheetNo, int colIndex) throws Exception {
+//    List<String> columnData = new ArrayList<>();
+//    try (FileInputStream fis = new FileInputStream(excelPath);
+//         Workbook workbook = new XSSFWorkbook(fis)) {
+//        Sheet sheet = workbook.getSheetAt(sheetNo);
+//        for (Row row : sheet) {
+//            Cell cell = row.getCell(colIndex, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+//            String value = cell.toString().trim();
+//            if (!value.isEmpty()) {
+//                columnData.add(value);
+//            }
+//        }
+//    }
 //
-//	        try {
-//	            fis = new FileInputStream(filePath);
-//	            workbook = new XSSFWorkbook(fis);
-//	            Sheet sheet = workbook.getSheet(sheetName);
-//	            if (sheet == null) {
-//	                throw new IllegalArgumentException("Sheet not found: " + sheetName);
-//	            }
-//
-//	            Row row = sheet.getRow(rowIndex);
-//	            if (row == null) {
-//	                throw new IllegalArgumentException("Row not found: " + rowIndex);
-//	            }
-//
-//	            Cell cell = row.getCell(colIndex);
-//	            if (cell == null) {
-//	                throw new IllegalArgumentException("Cell not found at column: " + colIndex);
-//	            }
-//
-//	            DataFormatter formatter = new DataFormatter();
-//	            cellValue = formatter.formatCellValue(cell);
-//
-//	        } catch (IOException e) {
-//	            e.printStackTrace();
-//	        } finally {
-//	            try {
-//	                if (workbook != null) workbook.close();
-//	                if (fis != null) fis.close();
-//	            } catch (IOException e) {
-//	                e.printStackTrace();
-//	            }
-//	        }
-//
-//	        return cellValue;
-//	    }
+//    return columnData;
+//}
 	
+}

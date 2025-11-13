@@ -85,14 +85,6 @@ public class UserPage extends BaseSteps {
 
 		        
 
-//		        // Define the locator
-//		        By gatedPlotLocator = By.xpath("//*[@id='swiper-wrapper-bc70a43a65d57a20']/div[1]/div/a/div[2]/div");
-//
-//		        // Wait until the element is present and clickable
-//		        WebElement gatedPlotElement = wait.until(ExpectedConditions.elementToBeClickable(gatedPlotLocator));
-//
-//		        // Click the element
-//		        gatedPlotElement.click();
 
 		        System.out.println("The plot in Gated Community was clicked successfully!");
 		    } catch (NoSuchElementException e) {
