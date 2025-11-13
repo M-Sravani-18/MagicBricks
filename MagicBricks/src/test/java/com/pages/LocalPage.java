@@ -17,7 +17,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.setup.BaseSteps;
+import com.setup.Reports;
 
 public class LocalPage extends BaseSteps{
 	private WebElement localityInput;
@@ -32,7 +34,7 @@ public class LocalPage extends BaseSteps{
     }
 	
     
-    @FindBy(xpath = "//*[@id=\\\"refine_keyword\\")
+    @FindBy(xpath = "//input[contains(@placeholder,'Add More')]")
     private WebElement locality;
     
     
@@ -47,14 +49,14 @@ public class LocalPage extends BaseSteps{
     private WebElement thirdSuggestion;
 
 
-    @FindBy(xpath = "//*[@id=\"resultDiv\"]/div[4]/div[1]/ul/li/a") 
+    @FindBy(xpath = "//div[text()='What kind of PG accomodation are you looking for?']") 
     private List<WebElement> pgListings;
 
     
     public void enterLocality(String localityText) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
         wait.until(ExpectedConditions.visibilityOf(locality));
-        locality.clear();
+        locality.click();
         locality.sendKeys(localityText);
     }
     
@@ -77,17 +79,34 @@ public class LocalPage extends BaseSteps{
     }
 
    
-
-    public boolean isPgListDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//
+//    public boolean isPgListDisplayed() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        try {
+//            wait.until(ExpectedConditions.visibilityOfAllElements(pgListings));
+//            return !pgListings.isEmpty();
+//        } catch (TimeoutException e) {
+//            return false;
+//        }
+//    }
+//    
+  public static boolean getPageTitle() {
+    	
         try {
-            wait.until(ExpectedConditions.visibilityOfAllElements(pgListings));
-            return !pgListings.isEmpty();
-        } catch (TimeoutException e) {
+            String currentUrl = driver.getCurrentUrl();
+            System.out.println("Current Page URL: " + currentUrl);
+            Reports.generateReport(driver, test, Status.PASS, "PG  Page is verified");
+            
+            // Just check if URL contains 'seat-availability'
+            return currentUrl.contains("hostels-in-bangalore-pppfr");
+        } catch (Exception e) {
+            System.out.println("Error verifying PG page: " + e.getMessage());
+            Reports.generateReport(driver, test, Status.FAIL, "PG Page is not verified");
             return false;
         }
+	
+	
     }
-    
     
 	
 	

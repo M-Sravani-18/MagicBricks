@@ -18,18 +18,26 @@ import io.cucumber.java.en.When;
 public class ProfilePG extends BaseSteps {
 	
 	Properties prop=PropertyReader.readProperty();
-	HomePage homepage;
+	HomePage homepage=new HomePage(driver);
 	PGPage pgPage=new PGPage(driver);
 	
+//	public Profile() {
+//        //this.driver = Hooks.getDriver(); // or however you're managing driver
+//        this.homePage = new HomePage(driver);
+//    }
+
+	
 		//new
-//	 public profile() {
+	 public ProfilePG() {
 //		 this.homepage=new Homepage(driver);
 //		 this.pgPage=new pgPage(driver);
-//	 }
+		 this.homepage=homepage;
+		 this.pgPage=pgPage;
+	 }
 	//new	
 	    
 	@When("the user clicks on the Hostels in Bangalore option")
-	public void the_user_clicks_on_the_pg() {
+	public void the_user_clicks_on_the_pg() throws InterruptedException {
 	
 		pgPage.clickHostelsinBglr();
 	}
