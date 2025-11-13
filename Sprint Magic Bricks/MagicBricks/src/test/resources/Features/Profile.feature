@@ -23,9 +23,19 @@ Then New projects page is loaded
 Scenario: Entering datain the search bar and navigating to poperty details
 Given the user is on the Homepage of the magicBricks
 When the user clicks on the plot option
-And enters the search data in the search bar<SheetNo>
+And enters the search data in the search bar
 And clicks on the search button
-Then the user should be navigated to the Search Result page
-When user clicks on the first property details page 
-Then the user should be redirected to the selected property details page
-And navigates to the properties foe sale sale section
+
+@scenariooutlinefromexcel
+Scenario: Select budget from Excel2
+Given the user on the Homepage
+And enter budget in the budget box <row> <sheet>
+
+Examples:
+  | row | sheet |
+  | 1   | 0     |
+  | 2   | 0     |
+
+
+
+        
