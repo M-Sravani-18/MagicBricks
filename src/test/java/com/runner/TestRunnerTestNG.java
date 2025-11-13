@@ -5,9 +5,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
     features = ".\\src\\test\\resources\\com\\Features\\buy.feature", // Path to feature files
+    tags= "@cityList",
     glue = {"com.stepdefinitiontestng"}, // Step definition package
-    plugin = {"pretty", "html:target/cucumber-reports.html"}
-    
-)
+    plugin = {"pretty", "html:target/cucumber-reports.html"},
+    monochrome= true
+    )
 public class TestRunnerTestNG extends AbstractTestNGCucumberTests {
 }
