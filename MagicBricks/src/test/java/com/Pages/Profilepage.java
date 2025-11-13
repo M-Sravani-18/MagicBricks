@@ -1,18 +1,19 @@
 package com.Pages;
 
 import java.time.Duration;
-import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.Parameters.PropertyReader;
+import com.aventstack.extentreports.Status;
 
 public class Profilepage extends BasePage {
 
@@ -50,8 +51,23 @@ public class Profilepage extends BasePage {
      //🔹 BHK Dropdown Label
     @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]")
     private WebElement bhkDropdownLabel;
-
     
+    //=====================outline 1================================
+    @FindBy(xpath = "//*[@id=\"commercialIndex\"]/header/section[2]/div/ul/li[5]/a")
+    private WebElement homeInteriorsDropdown1;
+
+    @FindBy(xpath = "//*[@id=\"commercialIndex\"]/header/section[2]/div/ul/li[5]/div/div/div/ul/li[2]/a")
+    private WebElement bangaloreLink;
+
+    @FindBy(xpath= "(//div[text()='Bangalore'])[1]")
+    private WebElement cityDropdown;
+    
+    @FindBy(xpath="(//*[@id=\"intsrpPages\"]/div[1]/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[1]/div[2])")
+    private WebElement ahm;
+
+
+
+ //=====================1st scenario======================
     public void hoverOnHomeInteriorsDropdown() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(homeInteriorsDropdown));
@@ -150,11 +166,23 @@ public class Profilepage extends BasePage {
 //       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        return wait.until(ExpectedConditions.visibilityOf(hyderabadDesignersHeading)).isDisplayed();
 //   }
+   
+    
+  //=============================second scenario=================================================== 
+    
     // ✅ Step 1: Click Bangalore Design Link
-    public void clickInteriorDesignInBangalore() {
-        wait.until(ExpectedConditions.elementToBeClickable(bangaloreDesignLink)).click();
+  
+    /*public void clickInteriorDesignInBangalore() {
+     wait.until(ExpectedConditions.elementToBeClickable(bangaloreDesignLink)).click();
         System.out.println("Clicked on Interior Design in Bangalore link.");
     }
+}*/
+    public void clickInteriorDesignInBangalore() {
+        wait.until(ExpectedConditions.elementToBeClickable(bangaloreDesignLink));
+        bangaloreDesignLink.click();
+           System.out.println("Clicked on Interior Design in Bangalore link.");
+       }
+
 
     // ✅ Step 2: Click Get Estimate Now
 //    public void clickGetEstimateNow() {
@@ -168,9 +196,103 @@ public class Profilepage extends BasePage {
 //        System.out.println("BHK dropdown visibility: " + visible);
 //        return visible;
 //    }
+    
+    
+    
+
+
+
+
+//=========================outline scenario 1==================================
+
+    @FindBy(xpath="(//div[text()='Commercial'])[1]")
+    private WebElement clickcommerical;
+    
+//   @FindBy(id="tabCOMM")
+//   private WebElement clickcommerical;
+    
+   @FindBy(xpath="//*[@id=\"keyword\"]")
+   private WebElement searchbar;
+   
+   @FindBy(xpath="//*[@id=\"commercialIndex\"]/section[1]/div/div[1]/div[3]/div[5]")
+   private WebElement searchbutton;
+   
+   
+   public void clickCommercialTab() {
+      // WebElement clickcommercial;
+	   wait.until(ExpectedConditions.visibilityOf(clickcommerical));
+	   wait.until(ExpectedConditions.elementToBeClickable(clickcommerical));
+	   ((JavascriptExecutor) driver).executeScript("arguments[0].click();", clickcommerical);
+	   //clickcommerical.click();
+   }
+
+   public boolean enteringCityname(String cname) throws InterruptedException
+   {
+ 	  try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+			wait.until(ExpectedConditions.visibilityOf(searchbar));
+			wait.until(ExpectedConditions.elementToBeClickable(searchbar));
+			searchbar.clear();
+			searchbar.click();
+			
+			searchbar.sendKeys(cname);
+			return true;
+		  } catch (Exception e) {
+
+			return false;
+		  }
+			
+   }
+   
+   public boolean clickSearch()
+		{
+			try
+			{
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+				//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));//
+				wait.until(ExpectedConditions.elementToBeClickable(searchbutton));
+				searchbutton.click();
+				return true;
+			}
+
+			catch (Exception e) {
+				System.out.println("Error clicking Search button: " + e.getMessage());
+				return false;
+			}
+
+		}
+
 }
-	 
     
     
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
