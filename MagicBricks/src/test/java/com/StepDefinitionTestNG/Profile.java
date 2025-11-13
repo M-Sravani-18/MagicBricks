@@ -1,11 +1,13 @@
 package com.StepDefinitionTestNG;
 
-import static org.testng.Assert.assertTrue;
-
 import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import com.Pages.EstimatedCostPage;
 import com.Pages.Profilepage;
+import com.Parameters.ExcelReader;
 import com.Parameters.PropertyReader;
 import com.Setup.BaseSteps;
 
@@ -15,9 +17,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Profile extends BaseSteps {
+	//WebDriver driver = BaseSteps.driver;
 	EstimatedCostPage estimate;
     Profilepage profilePage;
-    Properties prop;
+   // Properties prop;
+    Properties prop =PropertyReader.readProperty();
+    String excel;
 
     // -------------------- Launch & Homepage Verification --------------------
 
@@ -70,13 +75,8 @@ public class Profile extends BaseSteps {
     public void user_click_home_interior_design_services() {
     	profilePage.clickHomeInteriorDesignServices();
     	
-        
-    }
-
-
-
-
-    @Then("user nagivate to Home interior Design services page")
+   }
+ @Then("user nagivate to Home interior Design services page")
     public void user_nagivate_to_home_interior_design_services_page() throws InterruptedException 
     {
         //assertTrue(profilePage.isHomeInteriorDesignPageDisplayed());
@@ -93,7 +93,7 @@ public class Profile extends BaseSteps {
         
         
         
-//    }
+
     }
 
 //    @When("user click on hyderabad")
@@ -109,62 +109,20 @@ public class Profile extends BaseSteps {
 //    }
 
     
-//=============================estimate page====================================================
 
-//@Given("User launches the site with configured url")
-//public void User_launches_the_application_with_configured_url() {
-//    launchBrowser();
-//    driver.get(prop.getProperty("url2")); // Reads Hyderabad URL from properties
-//}
-//
-//@When("user select Economic")
-//public void user_select_economic() {
-//    estimatepage.selectBudgetOption(prop.getProperty("budgetoption")); // Reads "Economic"
-//}
-//
-////   @When("user select Economic")
-////   public void user_select_economic() {
-////        estimatepage = new EstimatedCostPage(driver);
-////        estimatepage.selectBudgetOption(prop.getProperty("budgetOption")); // e.g., "Economic"
-////    }
-//
-//    @When("click on Get Estimate Now")
-//    public void click_on_get_estimate_now() {
-//        estimatepage.clickGetEstimateNow();
-//    }
-//
-//
-//@When("click on {int}+BHK and slect option")
-//public void click_on_bhk_and_slect_option(Integer int1) {
-//    estimatepage.selectBHKOption(Integer.parseInt(prop.getProperty("bhkOption"))); // Reads "2"
-//}
-//
-//
-//    @When("click on next")
-//    public void click_on_next() {
-//        estimatepage.clickNext();
-//    }
-//
-//    @When("click on continue")
-//    public void click_on_continue() {
-//        estimatepage.clickContinue();
-//    }
-//
-//    @Then("Your Estimated Cost for Home Interiors {int} + BHK will display")
-//    public void your_estimated_cost_for_home_interiors_bhk_will_display(Integer int1) {
-//        assertTrue(estimatepage.isEstimatedCostDisplayed(int1), "Estimated cost not displayed for " + int1 + " BHK");
-//    }
     
 //==========================================Second secnario===============================================
     
-    EstimatedCostPage estimatepage;
+   // EstimatedCostPage estimatepage;
     
 
     @Given("user is on the homepage")
     public void user_is_on_the_homepage() {
         // Write code here that turns the phrase above into concrete actions
         //throw new io.cucumber.java.PendingException();
+    	launchBrowser();
     	profilePage = new Profilepage(driver);
+
     }
 
     @When("user hover on the Home Interiors dropdown")
@@ -175,10 +133,12 @@ public class Profile extends BaseSteps {
     }
 
     
-    @When("user click Home interior Design in banglore")
+    @And("user click Home interior Design in banglore")
     public void user_click_home_interior_design_in_banglore() {
+    	
         estimate = new EstimatedCostPage(driver);
         estimate.clickInteriorDesignInBangalore();
+       
     }
     
     @Then("user nagivate to Home interior Design in banglore page")
@@ -202,10 +162,60 @@ public class Profile extends BaseSteps {
 //        assertTrue(estimate.isBHKDropdownVisible(), "BHK type selection is not visible.");
 //        System.out.println("✅ BHK type selection page loaded successfully.");
 //    }
+    
+//=================================outline 1======================================================
+    
+    @Given("user lands on home page")
+    public void user_lands_on_home_page() {
+    	launchBrowser();
+    	profilePage = new Profilepage(driver);
+    	
+    	
+    }
+
+    
+
+    @When("user clicks on the Commercial")
+    public void user_clicks_on_the_commercial() {
+        profilePage.clickCommercialTab();
+    }
+ 
+    @When("user enters city name from sheet {int} and row {int}")
+//    public void user_enters_city_name_from_sheet_and_row(Integer sheetIndex, Integer rowIndex) throws InterruptedException {
+//        String cityName = ExcelReader.getCellData(sheetIndex, rowIndex, 0); // Assuming column 0 has city name
+//        boolean entered = profilePage.enteringCityname(cityName);
+//        Assert.assertTrue(entered, "Failed to enter city name in search bar");
+//    }
+    
+    public void user_enters_city_name_from_sheet_and_row(Integer sheetIndex, Integer rowIndex) throws InterruptedException {
+		String filepath = prop.getProperty("excelpath");
+		
+		// Fetch locality from specific sheet and row
+		String nameOfCity = ExcelReader.getLocalityByRow(filepath, sheetIndex, rowIndex);
+		Assert.assertNotNull(nameOfCity, "Locality not found at sheet " + sheetIndex + ", row " + rowIndex);
+		System.out.println("City from Excel:" + nameOfCity);
+		//Assert.assertNotNull(userpage, "UserPage object is not initialized");
+		
+		profilePage.enteringCityname(nameOfCity);
+	}
+ 
+    @When("user clicks on search button")
+    public void user_clicks_on_search_button() {
+        boolean clicked = profilePage.clickSearch();
+        Assert.assertTrue(clicked, "Failed to click search button");
+    }
+ 
+    @Then("it shoiuld display list of properties available")
+    public void it_shoiuld_display_list_of_properties_available() {
+        // You can add a method in ProfilePage to verify property list or use an assertion on a locator
+        // Example:
+        boolean isDisplayed = driver.getPageSource().contains("Properties"); // Replace with actual check
+        Assert.assertTrue(isDisplayed, "Property list is not displayed!");
+    }
+ 
 
 
 }
-
 
 
 

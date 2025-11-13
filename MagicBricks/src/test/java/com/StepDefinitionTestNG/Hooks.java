@@ -87,4 +87,35 @@
 //        driver.quit();
 // 
 //    }
+
+//}
+
+//package com.StepDefinitionTestNG;
+//
+//import org.testng.annotations.AfterMethod;
+//import org.testng.annotations.BeforeMethod;
+//import io.cucumber.java.Before;
+//
+//import com.Setup.BaseSteps;
+//
+//import io.cucumber.java.After;
+//
+//public class Hooks extends BaseSteps {
+//
+//    @BeforeMethod
+//	public void setUp() {
+//        launchBrowser();
+//        System.out.println("🔄 Browser launched");
+//    }
+//
+//    public void launchBrowser() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@AfterMethod
+//	public void tearDown() {
+//        closeBrowser();
+//        System.out.println("✅ Browser closed");
+//    }
 //}
