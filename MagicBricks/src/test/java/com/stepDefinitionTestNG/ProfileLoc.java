@@ -15,6 +15,7 @@ import com.parameters.PropertyReader;
 import com.setup.BaseSteps;
 import com.setup.Reports;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -30,12 +31,16 @@ public class ProfileLoc extends BaseSteps {
 
 	@When("the user enters PG locality from sheet {int} and row {int}")
 	public void the_user_enters_pg_locality_from_sheet_and_row(Integer sheetIndex, Integer rowIndex) {
-		String excel=PropertyReader.getProperty("C:\\Training\\MagicBricksSprintImp\\MagicBricks\\src\\test\\resources\\TestData\\localities.xlsx");
-		String locality = ExcelReader.getLocalityByRow("Locality", rowIndex, sheetIndex);
+		String excel=PropertyReader.getProperty("excelPath");
+		String locality = ExcelReader.getLocalityByRow(excel, sheetIndex, rowIndex);
 		
+		local.enterLocality(locality);
+
 		// Enter locality in the search box
 		//HomePage homepage = new HomePage(driver);
-		local.enterLocality(locality);
+		//local.enterLocality(locality);
+		
+		
 
 
 
@@ -43,7 +48,7 @@ public class ProfileLoc extends BaseSteps {
 
 	}
 
-	@When("the user selects the city from suggestions")
+	@And("the user selects the city from suggestions")
 	public void the_user_selects_the_city_from_suggestions() {
 		// HomePage homepage = new HomePage(driver);
 		local.selectFirstSuggestion();
@@ -58,7 +63,7 @@ public class ProfileLoc extends BaseSteps {
 	public void it_should_display_pg_listings_in_that_locality() {
 
 		PGPage pgPage = new PGPage(driver);
-		boolean listingsVisible = local.isPgListDisplayed();
+		boolean listingsVisible = local.getPageTitle();
 
 		Assert.assertTrue(listingsVisible, "PG listings were not displayed for the selected locality.");
 
@@ -66,26 +71,6 @@ public class ProfileLoc extends BaseSteps {
 
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

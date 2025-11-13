@@ -26,17 +26,18 @@ public class PGPage extends BaseSteps{
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-   // @FindBy(xpath="//*[@id=\"commercialIndex\"]") ////*[@id="propTypesRent1"]/ul/li[9]/a
-    @FindBy(css = "#propTypesRent1 > ul > li:nth-child(9) > a")
+   // @FindBy(path="//*[@id=\"commercialIndex\"]") ////*[@id="propTypesRent1"]/ul/li[9]/a
+    @FindBy(xpath = "//a[contains(text(),'Student Hostels in Bangalore')]")
     private WebElement hostelsinbglr;		////*[@id=\"commercialIndex\
     
     
     @FindBy(xpath="//div[text()='What kind of PG accomodation are you looking for?']")
     private WebElement text;
     
-    public void clickHostelsinBglr() {
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-    	wait.until(ExpectedConditions.elementToBeClickable(hostelsinbglr)).click();
+    public void clickHostelsinBglr() throws InterruptedException {
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+    	//wait.until(ExpectedConditions.visibilityOf(hostelsinbglr));
+    	//wait.until(ExpectedConditions.elementToBeClickable(hostelsinbglr)).click();
     	hostelsinbglr.click();
     	//Thread.sleep(2000);
         //pgInBangaloreOption.click();
