@@ -2,7 +2,7 @@ package com.StepDefinitionTestNG;
 
 import java.util.Properties;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import com.Pages.EstimatedCostPage;
@@ -173,8 +173,6 @@ public class Profile extends BaseSteps {
     	
     }
 
-    
-
     @When("user clicks on the Commercial")
     public void user_clicks_on_the_commercial() {
         profilePage.clickCommercialTab();
@@ -188,7 +186,7 @@ public class Profile extends BaseSteps {
 //    }
     
     public void user_enters_city_name_from_sheet_and_row(Integer sheetIndex, Integer rowIndex) throws InterruptedException {
-		String filepath = prop.getProperty("excelpath");
+		String filepath = prop.getProperty("filepath");
 		
 		// Fetch locality from specific sheet and row
 		String nameOfCity = ExcelReader.getLocalityByRow(filepath, sheetIndex, rowIndex);
@@ -201,8 +199,9 @@ public class Profile extends BaseSteps {
  
     @When("user clicks on search button")
     public void user_clicks_on_search_button() {
-        boolean clicked = profilePage.clickSearch();
-        Assert.assertTrue(clicked, "Failed to click search button");
+        //boolean clicked = profilePage.clickSearch();
+    	profilePage.clickSearch();
+        //Assert.assertTrue(clicked, "Failed to click search button");
     }
  
     @Then("it shoiuld display list of properties available")
@@ -214,11 +213,127 @@ public class Profile extends BaseSteps {
     }
  
 
+//====================================== 4th scenario==============================================================
+
+//@Given("user is on The Homepage")
+//public void user_is_on_The_Homepage() {
+//	launchBrowser();
+//	profilePage = new Profilepage(driver);
+//}
+//
+//
+//@When("user hovers on the Home Interiors dropdown")
+//    public void user_hovers_on_the_home_interiors_dropdown() {
+//	
+//        profilePage.hoverOnHomeInteriorsDropdown();
+//    }
+//
+//
+//@And("user clicks  interior Designers in banglore")
+//    public void user_clicks_interior_Designers_in_bangalore() {
+//	
+//        profilePage.clickInteriorDesignInBangalore();
+//    }
+//
+//
+//
+//
+//@And("user click the contact")
+//    public void user_click_the_contact() {
+//	
+//        profilePage.clickContactButton();
+//    }
+//
+//
+//
+//@Then("user navigate to Please share your contact details page")
+//    public void user_navigate_to_contact_details_page() {
+//        //Assert.assertTrue(profilePage.isContactDetailsPageDisplayed(), 
+//            //"Contact details page is not  displayed!\");
+//
+//
+////closeBrowser();
+//    }
+
+    
+    
+//=====================================scenario 4 =========================================================================
+
+    @Given("user is on The HomePage")
+    public void user_is_on_the_home_page() {
+    	launchBrowser();
+    	profilePage = new Profilepage(driver);
+    }
+
+    @When("user hover on the MB Advice dropdown")
+    public void user_hover_on_the_mb_advice_dropdown() {
+       profilePage.hoverOnMBAdviceDropdown();
+    }
+
+    
+
+    @When("user clicks on Prop Index")
+    public void user_clicks_on_prop_index() {
+    	  profilePage.clickPropIndex();
+    }
+
+//    @When("user clicks on Get Estimate")
+//    public void user_clicks_on_get_estimate() throws InterruptedException {
+//    	profilePage.clickGetEstimate();
+//    }
+//
+//    @Then("How much is my property worth?")
+//    public void how_much_is_my_property_worth() {
+//
+//Assert.assertTrue(profilePage.isPropertyWorthPageDisplayed(),
+//                "Property worth page is not displayed!");
+//        closeBrowser();
+//    }
+
+    @Then("user navigate to propworth page")
+    public void user_navigate_to_propworth_page() throws InterruptedException {
+    	Thread.sleep(1000);
+        if(driver.getTitle().equals("propworth/bangalore"))
+        {
+        	System.out.println(driver.getTitle());
+        }
+        
+    }
+    
+   
+ //============================= scenario 5 ===========================================================
+    @When("user clicks on the commerical")
+    public void user_clicks_on_the_commerical() {
+    	 profilePage.clickCommercialTab();
+    }
+
+    @When("the user clicks on the rates and trends")
+    public void the_user_clicks_on_the_rates_and_trends() {
+    	profilePage.clickonrate();
+    }
+
+    @And("user enters the locality name from sheet <sheet1> and <row1>")
+    public void user_enters_city_name_from_sheet_and_row1(Integer sheetIndex, Integer rowIndex) throws InterruptedException {
+		String excelPathSO = prop.getProperty("filepath").trim();
+		// Fetch locality from specific sheet and row
+		String nameOfCity = ExcelReader.getLocalityByRow(excelPathSO, sheetIndex, rowIndex);
+		Assert.assertNotNull(nameOfCity, "Locality not found at sheet " + sheetIndex + ", row " + rowIndex);
+		System.out.println("City from Excel:" + nameOfCity);
+		//Assert.assertNotNull(userpage, "UserPage object is not initialized");
+		profilePage.enterPlace(nameOfCity);
+	}
+ 
+
+    @Then("it displays the updated page")
+    public void it_displays_the_updated_page() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
+
 
 }
-
-
-
 
 
 

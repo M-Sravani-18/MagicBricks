@@ -41,15 +41,34 @@ Examples:
 
 
 
-@scenario4
-Scenario: To verify contact now
-Given user is on The Homepage
-When user hovers on the Home Interiors dropdown 
-And user click Home interior Design in banglore
-And user click the contact
-Then user navigate to Please share your contact details page
+#@scenario4
+#Scenario: To verify contact now
+#Given user is on The Homepage
+#When user hovers on the Home Interiors dropdown 
+#And user clicks  interior Designers in banglore
+#And user click the contact
+#Then user navigate to Please share your contact details page
+
+@secnari4
+Scenario:
+Given user is on The HomePage
+When user hover on the MB Advice dropdown
+And user clicks on Prop Index
+#And user clicks on Get Estimate
+Then user navigate to propworth page
 
 
+@scenario5
+Scenario Outline:
+Given user is on the homepage
+When user clicks on the commerical
+And the user clicks on the rates and trends
+And user enters the locality name from sheet <sheet1> and <row1>
+Then it displays the updated page
 
+Examples:
+|sheet1| row1|
+|1    | 0 |
+|1    | 1 |
  
  
