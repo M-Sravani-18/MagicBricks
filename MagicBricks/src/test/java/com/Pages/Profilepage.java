@@ -211,7 +211,7 @@ public class Profilepage extends BasePage {
 //   @FindBy(id="tabCOMM")
 //   private WebElement clickcommerical;
     
-   @FindBy(xpath="//*[@id=\"keyword\"]")
+   @FindBy(className=".mb-search__input")
    private WebElement searchbar;
    
    @FindBy(xpath="//*[@id=\"commercialIndex\"]/section[1]/div/div[1]/div[3]/div[5]")
@@ -233,7 +233,8 @@ public class Profilepage extends BasePage {
 
 			wait.until(ExpectedConditions.visibilityOf(searchbar));
 			wait.until(ExpectedConditions.elementToBeClickable(searchbar));
-			searchbar.clear();
+			//searchbar.clear();
+			
 			searchbar.click();
 			
 			searchbar.sendKeys(cname);
@@ -262,33 +263,190 @@ public class Profilepage extends BasePage {
 			}
 
 		}
+   
+    
+//=============================== 4th scenario==============================================================   
+
+   //@FindBy(xpath="//*[@id=\"intsrpPages\"]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/a/div[2]/div[2]/span[2]")
+  // @FindBy(css = "a[href^=\"https://post.magicbricks.com\"]"
+   //@FindBy(xpath="//*[@id=\"intsrpPages\"]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/a/div[1]/h2")
+//   @FindBy(xpath="//*[@id=\"intsrpPages\"]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/a")
+//   private WebElement contactbtn;
+//
+// 
+//   
+//
+//public void clickContactButton() {
+//	//try {
+//	wait.until(ExpectedConditions.urlContains("interior-design")); 
+//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", contactbtn);
+//        wait.until(ExpectedConditions.elementToBeClickable(contactbtn)).click();
+//    } 
+//catch (Exception e) {
+//        System.out.println("Contact button not clickable: " + e.getMessage());
+//    }
+
+    //}
+
+
+//    public boolean isContactDetailsPageDisplayed() {
+//        return wait.until(ExpectedConditions.visibilityOf(contactDetailsHeader)).isDisplayed();
+//    }
+
+
+   
+   
+//========================================scenario 4============================================================
+   
+   
+ @FindBy(xpath = "//*[@id=\"commercialIndex\"]/header/section[2]/div/ul/li[6]/a")
+  private WebElement MBAdvice;
+ 
+ @FindBy(xpath="//*[@id=\"commercialIndex\"]/header/section[2]/div/ul/li[6]/div/div/div[3]/ul/li[4]/a")
+ private WebElement clickpropwrth;
+ 
+ @FindBy(xpath="//*[@id=\"propworth\"]/div[2]/div[1]/div[3]/span[2]")
+ private WebElement clickgetestimate;
+   
+
+
+
+public void hoverOnMBAdviceDropdown() {
+	
+        wait.until(ExpectedConditions.visibilityOf(MBAdvice));
+        wait.until(ExpectedConditions.elementToBeClickable(MBAdvice));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(MBAdvice).perform();
+    }
+
+
+public void clickPropIndex() {
+	 wait.until(ExpectedConditions.visibilityOf(clickpropwrth));
+     
+wait.until(ExpectedConditions.elementToBeClickable(clickpropwrth));
+clickpropwrth.click();
+
+    }
+
+    
+
+
+//public void clickGetEstimate() throws InterruptedException {
+//	Thread.sleep(1000);
+//wait.until(ExpectedConditions.visibilityOf(getEstimateButton));
+//wait.until(ExpectedConditions.elementToBeClickable(getEstimateButton));
+//getEstimateButton.click();
+//
+//    }
+//
+//public boolean isPropertyWorthPageDisplayed() {
+//	// TODO Auto-generated method stub
+//	return false;
+//}
+
+//========================================scenario 5=============================================================
+
+@FindBy(xpath="//*[@id=\"tabCOMM\"]")
+WebElement oncommercial;
+
+@FindBy(xpath="//*[@id=\"swiper-wrapper-6478e62874105f5c9\"]/div[3]/div")
+ WebElement clickrate;
+
+@FindBy(xpath="//*[@id=\"autoSuggestInputDivkeyword\"]")
+WebElement searchplace;
+
+@FindBy(xpath="//*[@id=\"keyword_suggest\"]/div[2]")
+WebElement location;
+
+@FindBy(xpath="//*[@id=\"searchWrap\"]/div[2]")
+WebElement showtrends;
+
+
+
+
+public void clickOnCommercial() {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    wait.until(ExpectedConditions.elementToBeClickable(oncommercial));
+    oncommercial.click();
+}
+
+public void clickonrate() {
+	 
+  	  try {
+  	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+  	        // Locate the element using XPath
+  	        WebElement ratesAndTrends = driver.findElement(By.xpath("//div[@class='mb-home__tool-advice__card--title' and normalize-space(text())='Rates & Trends']/ancestor::a"));
+
+  	        // Scroll into view using JavaScript
+  	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", ratesAndTrends);
+
+  	        // Wait until it's visible and clickable
+  	        wait.until(ExpectedConditions.visibilityOf(ratesAndTrends));
+  	        wait.until(ExpectedConditions.elementToBeClickable(ratesAndTrends));
+
+  	        // Optional: Click the button
+  	        ratesAndTrends.click();
+
+  	       // return true;
+  	    } catch (Exception e) {
+  	        System.out.println("Rates & Trends button not found or not clickable.");
+  	        e.printStackTrace();
+  	        //return false;
+  	    }
+}
+
+//public void toEnterData() throws InterruptedException {
+//	wait.until(ExpectedConditions.visibilityOf(searchplace));
+//	searchplace.click();
+//	Thread.sleep(3000);
+//	searchplace.sendKeys();
+//	Thread.sleep(5000);
+//
+//    }
+
+public boolean enterPlace(String cname) throws InterruptedException
+{
+	  try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+			wait.until(ExpectedConditions.visibilityOf(searchplace));
+			wait.until(ExpectedConditions.elementToBeClickable(searchplace));
+			//searchbar.clear();
+			
+			searchplace.click();
+			
+			searchplace.sendKeys(cname);
+			return true;
+		  } catch (Exception e) {
+
+			return false;
+		  }
+			
+}
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
-    
-    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 

@@ -6,7 +6,10 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		features = ".\\src\\test\\resources\\Features\\Profile.feature",		
 		glue = "com.StepDefinitionTestNG",
-		tags="@sec3",
+		//tags="@scenario4",
+		//tags="@secnari4",
+		//tags="@sec3",
+		tags="@scenario5",
 		
 	    
 	       plugin = {"pretty", "html:Reports/cucumber-reports.html"}

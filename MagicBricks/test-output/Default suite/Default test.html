@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Nov 13 22:59:10 IST 2025</td>
+<td>Started on:</td><td>Fri Nov 14 18:07:35 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>20 seconds (20730 ms)</td>
+<tr><td>Total time:</td><td>38 seconds (38638 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,36 +76,56 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify properties", "validate MagicBricks website launch functionality"</td>
-<td><div><pre>java.lang.AssertionError: Locality not found at sheet 0, row 1 expected object to not be null
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.assertNotNull(Assert.java:1496)
-	at com.StepDefinitionTestNG.Profile.user_enters_city_name_from_sheet_and_row(Profile.java:195)
-	at ✽.user enters city name from sheet 0 and row 1(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:34)
-</pre></div><a href='#' onClick='toggleBox("stack-trace201069753", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace201069753'><pre>java.lang.AssertionError: Locality not found at sheet 0, row 1 expected object to not be null
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.assertNotNull(Assert.java:1496)
-	at com.StepDefinitionTestNG.Profile.user_enters_city_name_from_sheet_and_row(Profile.java:195)
-	at ✽.user enters city name from sheet 0 and row 1(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:34)
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "", "validate MagicBricks website launch functionality"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user enters the locality name from sheet 1 and 0&apos; is undefined.
+You can implement this step using the snippet(s) below:
+
+@When(&quot;user enters the locality name from sheet {int} and {int}&quot;)
+public void user_enters_the_locality_name_from_sheet_and(Integer int1, Integer int2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user enters the locality name from sheet 1 and 0(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:66)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1680365850", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1680365850'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user enters the locality name from sheet 1 and 0&apos; is undefined.
+You can implement this step using the snippet(s) below:
+
+@When(&quot;user enters the locality name from sheet {int} and {int}&quot;)
+public void user_enters_the_locality_name_from_sheet_and(Integer int1, Integer int2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user enters the locality name from sheet 1 and 0(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:66)
 </pre></div></td>
-<td>10</td>
+<td>19</td>
 <td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify properties", "validate MagicBricks website launch functionality"</td>
-<td><div><pre>java.lang.AssertionError: Locality not found at sheet 0, row 0 expected object to not be null
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.assertNotNull(Assert.java:1496)
-	at com.StepDefinitionTestNG.Profile.user_enters_city_name_from_sheet_and_row(Profile.java:195)
-	at ✽.user enters city name from sheet 0 and row 0(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:34)
-</pre></div><a href='#' onClick='toggleBox("stack-trace783882192", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace783882192'><pre>java.lang.AssertionError: Locality not found at sheet 0, row 0 expected object to not be null
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.assertNotNull(Assert.java:1496)
-	at com.StepDefinitionTestNG.Profile.user_enters_city_name_from_sheet_and_row(Profile.java:195)
-	at ✽.user enters city name from sheet 0 and row 0(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:34)
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "", "validate MagicBricks website launch functionality"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user enters the locality name from sheet 1 and 1&apos; is undefined.
+You can implement this step using the snippet(s) below:
+
+@When(&quot;user enters the locality name from sheet {int} and {int}&quot;)
+public void user_enters_the_locality_name_from_sheet_and(Integer int1, Integer int2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user enters the locality name from sheet 1 and 1(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:66)
+</pre></div><a href='#' onClick='toggleBox("stack-trace438897070", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace438897070'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user enters the locality name from sheet 1 and 1&apos; is undefined.
+You can implement this step using the snippet(s) below:
+
+@When(&quot;user enters the locality name from sheet {int} and {int}&quot;)
+public void user_enters_the_locality_name_from_sheet_and(Integer int1, Integer int2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user enters the locality name from sheet 1 and 1(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:66)
 </pre></div></td>
-<td>9</td>
+<td>18</td>
 <td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
 </table><p>
 </body>
