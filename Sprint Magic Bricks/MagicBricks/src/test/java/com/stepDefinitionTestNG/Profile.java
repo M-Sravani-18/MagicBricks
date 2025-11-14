@@ -17,7 +17,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Profile{
+public class Profile extends BaseSteps{
 	
 	Properties prop = PropertyReader.readProperty();
 	
@@ -27,7 +27,7 @@ public class Profile{
 	
 	@Given("the user lauches the browser")
 	public void the_user_lauches_the_browser() {
-		userpage.launchBrowserPage();
+		//userpage.launchBrowserPage();
 		
 	}
 
@@ -137,11 +137,13 @@ HomePage homepage=new HomePage();
 	
 	
 	SearchPage searchpage=new SearchPage();
+	SearchPage searchPage = new SearchPage(BaseSteps.driver);
 
 	@Given("the user is on the Homepage of the magicBricks")
 	public void the_user_is_on_the_homepage_of_the_magic_bricks() {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
+		System.out.println("User is on the home page");
 	}
 
 	@When("the user clicks on the plot option")
@@ -152,27 +154,34 @@ HomePage homepage=new HomePage();
 		
 	}
 	
-	@When("enters the search data in the search bar")
-	public void enters_the_search_data_in_the_search_bar_sheet_no() throws InterruptedException {
+	@When("click on the see plots1")
+	public void click_on_the_see_plots1() {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
-		searchpage.enterSearchDetailsFromExcel();
+		searchpage.clickSeePlots1();
 	}
 
-
-//	@When("enters the search data in the search bar{int}")
-//	public void enters_the_search_data_in_the_search_bar(Integer SheetNo) throws InterruptedException {
+	@Then("navigate to the plots page and click click on the seeplots2")
+	public void navigate_to_the_plots_page_and_click_click_on_the_seeplots2() {
+	    // Write code here that turns the phrase above into concrete actions
+	    //throw new io.cucumber.java.PendingException();
+		searchpage.clickSeePlots2();
+	}
+	
+//	@When("enters the search data in the search bar")
+//	public void enters_the_search_data_in_the_search_bar_sheet_no() throws InterruptedException {
 //	    // Write code here that turns the phrase above into concrete actions
 //	    //throw new io.cucumber.java.PendingException();
 //		searchpage.enterSearchDetailsFromExcel();
 //	}
-
-	@When("clicks on the search button")
-	public void clicks_on_the_search_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		searchpage.clickOnSearch();
-	}
+//
+//	@When("clicks on the search button")
+//	public void clicks_on_the_search_button() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    //throw new io.cucumber.java.PendingException();
+//		searchpage.clickOnSearch();
+//		driver.quit();
+//	}
 
 	//==============================================================================================
 	//===============================================================================================
@@ -200,113 +209,118 @@ String excelPathSO = prop.getProperty("excelpath").trim();
 		//searchpage.enteringCityname(nameOfCity);
 		
 		searchpage.clickSearch();
+		driver.quit();
 	}
+	
 	
 	
  
-//	@When("user clicks on search button")
-//	public void user_clicks_on_search_button() {
-		
-		
+
+	
+	
+
+//===============================================================================================================
+//        5th Scenario                                                                                          
+//===============================================================================================================
+
+
+
+//	@Given("click on the RatesAndTrends")
+//	public void click_on_the_rates_and_trends() {
+//		
+//		
+//	    
 //	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//
 //		
-//String excelPathSO = prop.getProperty("excelpath").trim();
-//		
-//		// Fetch locality from specific sheet and row
-//		String nameOfCity = ExcelReader.getLocalityByRow(excelPathSO, sheetIndex, rowIndex);
-//		Assert.assertNotNull(nameOfCity, "Locality not found at sheet " + sheetIndex + ", row " + rowIndex);
-//		System.out.println("City from Excel:" + nameOfCity);
-//		//Assert.assertNotNull(userpage, "UserPage object is not initialized");
-//		
-//		userpage.enteringCityname(nameOfCity);
-		
-		
-		
-		
-		
+//@Given("the user enter the data in Rate And Trends {int} {int}")
+//public void the_user_enter_the_data_in_rate_and_trends(Integer sheetIndex, Integer rowIndex) {
+//	
+//	
+//	searchpage.scrollUptoRatesAndTrends();
+//	
+//	 String excelPath = prop.getProperty("excelratepath").trim();
+//	    
+//	    // Read locality from Excel
+//	    String locality = ExcelReader.getLocalityByRow(excelPath, sheetIndex, rowIndex);
+//	    Assert.assertNotNull(locality, "Locality not found at sheet " + sheetIndex + ", row " + rowIndex);
+//
+//	    System.out.println("Locality from Excel: " + locality);
+//
+//	    // Send locality to SearchPage method
+//	    boolean success = searchpage.readAndEnterRatesAndTrendsData(locality);
+//	    Assert.assertTrue(success, "Failed to enter locality in Rates & Trends");
+//
+//	
+//	
+//	
+//	    // Optional: driver.quit(); only if this is the end of the scenario
+//
+//	
+//}
 
 		
-		
-		
-		
-		
-		
-		
-		
-	}
+	//===========================
+
+@Given("user is on the home page")
+public void user_is_on_the_home_page() {
 	
-//		    // Step 1: Read Excel data
-//		    String excelPath = prop.getProperty("excelFilePath");
-//		    ExcelReader reader = new ExcelReader(excelPath);
-//		    List<String> rowData = reader.getRowData(sheet, row);
-//
-//		    // Step 2: Validate row data
-//		    if (rowData == null || rowData.isEmpty()) {
-//		        throw new RuntimeException("No data found at sheet " + sheet + ", row " + row);
-//		    }
-//
-//		    // Step 3: Extract budget value
-//		    String budget = rowData.get(0).trim(); // Column A (Budget)
-//
-//		    // Step 4: Select property type (Plot)
-//		    searchpage.clickPlot();
-//
-//		    // Step 5: Select budget
-//		    boolean status = searchpage.clickBudgetFilter(budget);
-//		    Assert.assertTrue(status, "Budget selection failed for: " + budget);
-//		}
-//
-////	    // Write code here that turns the phrase above into concrete actions
-////	    //throw new io.cucumber.java.PendingException();
-////		
-////		 //   Step 1: Read Excel data
-////	    String excelPath = prop.getProperty("excelFilePath");
-////	    ExcelReader reader = new ExcelReader(excelPath);
-////	    List<String> rowData = reader.getColumnData(sheet, row);
-////
-////	    // Step 2: Extract budget value
-////	    String budget = rowData.get(0); // Column A (Budget)
-////
-////		searchpage.clickPlot();
-////
-////	    // Step 4: Select budget
-////	    boolean status = searchpage.clickBudgetFilter(budget);
-////	    Assert.assertTrue(status, "Budget selection failed for: " + budget);
-//	}
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+}
+
+@Given("the user clicks on plot")
+public void the_user_clicks_on_plot() {
+	searchpage.clickPlot();
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+}
+
+@Given("user clicks Budget")
+public void user_clicks_budget() {
+	 searchpage.clickBudget();
+	    System.out.println("Clicked on budget.");
+
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+}
+
+@Given("the user reads price from the excel sheet {int} {int}")
+public void the_user_reads_price_from_the_excel_sheet(Integer sheetIndex, Integer rowIndex) {
+	String excelPath = prop.getProperty("path");
+    ExcelReader reader = new ExcelReader();
+    String price = reader.getLocalityByRow(excelPath, sheetIndex, rowIndex);
+    System.out.println("Price from Excel: " + price);
+    searchpage.enterBudget(price);
+
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+}
+
+@Given("click on search")
+public void click_on_search() {
+//	searchpage.clickSearch();
+//    System.out.println("Clicked on search.");
+
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+}
+
+@Then("result is displayed")
+public void result_is_displayed() {
+//	boolean resultVisible = searchpage.isResultDisplayed();
+//    Assert.assertTrue(resultVisible, "Result is not displayed.");
+//    System.out.println("Result is displayed.");
 //
 //    // Write code here that turns the phrase above into concrete actions
-//    //throw new io.cucumber.java.PendingException();
-//
-//		
-		
-		
-		
-	
-	
-	
-	
-		
+//   // throw new io.cucumber.java.PendingException();
+//}
 
+	
+}
+	
+		
+}
 
 	
 	

@@ -82,10 +82,6 @@ public class UserPage extends BaseSteps {
 		        if (!plots.isEmpty()) {
 		            plots.get(0).click(); // Clicks the first match
 		        }
-
-		        
-
-
 		        System.out.println("The plot in Gated Community was clicked successfully!");
 		    } catch (NoSuchElementException e) {
 		        System.out.println("Element not present in DOM: " + e.getMessage());
@@ -95,9 +91,9 @@ public class UserPage extends BaseSteps {
 	    }
 	 
 	 
-	 public static void closeHomepage() {
-	        closeBrowser();
-	    }
+//	 public static void closeHomepage() {
+//	        closeBrowser();
+//	    }
 	}
 
 
