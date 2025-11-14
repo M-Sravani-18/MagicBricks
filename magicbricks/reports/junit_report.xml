@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="124.933" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-11-14T11:43:23.012230200Z">
+<testcase classname="MagicBricks Navigation" name="Navigate to first locality in New Delhi" time="10.043">
+<system-out><![CDATA[
+Given the user launches the MagicBricks homepage............................passed
+When the user clicks on the MB Advice section...............................passed
+And the user selects Localities in New Delhi page...........................passed
+Then the user clicks on the first displayed locality........................passed
+]]></system-out>
+</testcase>
+<testcase classname="MagicBricks Navigation" name="validate locality details page contents" time="48.036">
+<system-out><![CDATA[
+Given the user launches the MagicBricks homepage............................passed
+When the user clicks on the MB Advice section...............................passed
+And the user selects Compare Localities.....................................passed
+Then the Compare Localities page should launch..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="MagicBricks Navigation" name="Validate price/sqft filter functionality on Localities in New Delhi page - #1.1" time="14.792">
+<system-out><![CDATA[
+Given the user launches the MagicBricks homepage............................passed
+When the user clicks on the MB Advice section...............................passed
+And the user selects Localities in New Delhi page...........................passed
+And the user clicks on the Price/sqrt filter option.........................passed
+And the user reads Min price values from Excel sheet 0 and row 1............passed
+And the user clicks on the Done.............................................passed
+Then the result is displayed................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="MagicBricks Navigation" name="Validate price/sqft filter functionality on Localities in New Delhi page - #1.2" time="13.666">
+<system-out><![CDATA[
+Given the user launches the MagicBricks homepage............................passed
+When the user clicks on the MB Advice section...............................passed
+And the user selects Localities in New Delhi page...........................passed
+And the user clicks on the Price/sqrt filter option.........................passed
+And the user reads Min price values from Excel sheet 0 and row 2............passed
+And the user clicks on the Done.............................................passed
+Then the result is displayed................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="MagicBricks Navigation" name="Validate Search box in Localities in New Delhi Page - #1.1" time="12.826">
+<system-out><![CDATA[
+Given the user launches the MagicBricks homepage............................passed
+When the user clicks on the MB Advice section...............................passed
+And the user selects Localities in New Delhi page...........................passed
+And the user clicks on search box...........................................passed
+And the user reads City from Excel sheet 1 and 1............................passed
+And the user clicks on the first displayed locality.........................passed
+Then the locality page displays.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="MagicBricks Navigation" name="Validate Search box in Localities in New Delhi Page - #1.2" time="11.22">
+<system-out><![CDATA[
+Given the user launches the MagicBricks homepage............................passed
+When the user clicks on the MB Advice section...............................passed
+And the user selects Localities in New Delhi page...........................passed
+And the user clicks on search box...........................................passed
+And the user reads City from Excel sheet 1 and 2............................passed
+And the user clicks on the first displayed locality.........................passed
+Then the locality page displays.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="MagicBricks Navigation" name="Validate Projects in New Delhi Page" time="13.393">
+<system-out><![CDATA[
+Given the user launches the MagicBricks homepage............................passed
+When the user clicks on the MB Advice section...............................passed
+And the user selects New Projects in New Delhi page.........................passed
+Then the page should be displayed...........................................passed
+]]></system-out>
+</testcase>
+</testsuite>
