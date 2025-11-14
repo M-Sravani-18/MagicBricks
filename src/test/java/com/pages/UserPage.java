@@ -3,6 +3,8 @@ package com.pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,7 +25,7 @@ public class UserPage {
 	public UserPage(WebDriver driver, ExtentTest test) {
 		this.driver = driver;
 		this.test = test;
-		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		PageFactory.initElements(driver, this);
 	}
 
@@ -84,7 +86,8 @@ public class UserPage {
 	    }
 	}
 	
-	// Third Scenario 
+	
+	//======================================Third Scenario==========================================//
 	
 
 		@FindBy(css = "input#keyword")
@@ -134,11 +137,204 @@ public class UserPage {
 			}
 
 	      
+//=========================fourth scenario====================================//
+	     
+	      
+	      // Click Buy module
+	      public boolean clickBuyModule1() {
+	    	  try {
+	    		  By buyModule = By.xpath("//a[text()='Buy']");
+	    		  wait.until(ExpectedConditions.elementToBeClickable(buyModule)).click();
+	    		  return true;
+	    	  } catch (Exception e) {
+	    		  return false;
+	    	  }
+	      }
+
+
+	      //  click Ready to Move
+	      public boolean selectReadytoMove(String readytoMove) {
+	    	  try {
+	    		  Thread.sleep(2000);
+	    		  By readytoMoveLocator = By.xpath("//a[contains(text(),'Ready to Move')]");
+	    		  wait.until(ExpectedConditions.elementToBeClickable(readytoMoveLocator)).click();
+	  
+	    		  // Handle new tab if opened
+	    		  String originalWindow = driver.getWindowHandle();
+	    		  for (String windowHandle : driver.getWindowHandles()) {
+	    			  if (!windowHandle.equals(originalWindow)) {
+	    				  driver.switchTo().window(windowHandle);
+	    				  break;
+	    			  }
+	    		  }
+
+	    		  // Wait for URL to change
+	    		  wait.until(ExpectedConditions.urlContains("ready-to-move"));
+                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class,'mb-srp__card')]")));
+	    		  return true;
+	    	  } catch (Exception e) {
+	    		  System.out.println("Error clicking property type: " + e.getMessage());
+	    		  return false;
+	    	  }
+	      }
+
+	      // click on the click on zero brokerage
+	      public void clickzerobrokerage() {
+	    	    try {
+	    	        // Use the exact XPath for ZERO BROKERAGE
+	    	        By zeroBrokerageButton = By.xpath("//*[@id=\"cardid68974847\"]/div/div[1]/div[2]/div[2]/span");
+
+	    	        // Wait for property cards to load (presence in DOM)
+	    	        wait.until(ExpectedConditions.presenceOfElementLocated(zeroBrokerageButton));
+
+	    	        // Wait until clickable
+	    	        wait.until(ExpectedConditions.elementToBeClickable(zeroBrokerageButton)).click();
+
+	    	        // Optional: Wait for navigation after click
+//	    	        wait.until(ExpectedConditions.urlContains("brokerage"));
+	    	    } catch (StaleElementReferenceException e) {
+	    	        System.out.println("Element went stale, retrying...");
+	    	        By zeroBrokerageButton = By.xpath("//*[@id='cardid68974847']/div/div[1]/div[2]/div[2]/span");
+	    	        wait.until(ExpectedConditions.elementToBeClickable(zeroBrokerageButton)).click();
+	    	    } catch (Exception e) {
+	    	        System.out.println("Error clicking ZERO BROKERAGE: " + e.getMessage());
+	    	    }
+	    	}
+
+	      // Method to verify URL
+	      public boolean verifyURL(String expectedURL) {
+	    	  return driver.getCurrentUrl().equals(expectedURL);
+	      }
 	      
 	      
 	      
 	      
-}
+//	      public boolean selectdis(String dis) {
+//	    	  try {
+//	    		  Thread.sleep(2000);
+//	    		  By readytoMoveLocator = By.xpath("//a[contains(text(),'Ready to Move')]");
+//	    		  wait.until(ExpectedConditions.elementToBeClickable(readytoMoveLocator)).click();
+//	  
+//	    		  // Handle new tab if opened
+//	    		  String originalWindow = driver.getWindowHandle();
+//	    		  for (String windowHandle : driver.getWindowHandles()) {
+//	    			  if (!windowHandle.equals(originalWindow)) {
+//	    				  driver.switchTo().window(windowHandle);
+//	    				  break;
+//	    			  }
+//	    		  }
+
+	    		  // Wait for URL to changeS
+//	    		 return  wait.until(ExpectedConditions.urlContains(" Flat/Apartment"));
+//                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class,'mb-srp__card')]")));
+//	    		  return true;
+//	    	  } catch (Exception e) {
+//	    		  System.out.println("Error clicking property type: " + e.getMessage());
+//	    		  return false;
+//	    	  }
+//	      }
+	      
+	      
+	      
+//==================================fifth Scenario==============================================//
+	      
+	      @FindBy(id="showTrendsId")
+	      WebElement trendsBtn;
+	      
+	      public void enterDataInteriorBudgetestimator() {  	  
+	    	  try {
+	    	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	 
+	    	        // Locate the element using XPath
+	    	        WebElement ratesAndTrends = driver.findElement(By.xpath("(//div[contains(@class,'mb-home__tool-advice__card card-shadow')])[4]"));
+	 
+	    	        // Scroll into view using JavaScript
+	    	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", ratesAndTrends);
+	 
+	    	        // Wait until it's visible and clickable
+	    	        wait.until(ExpectedConditions.visibilityOf(ratesAndTrends));
+	    	        wait.until(ExpectedConditions.elementToBeClickable(ratesAndTrends));
+	 
+	    	        // Optional: Click the button
+	    	        ratesAndTrends.click();
+
+	    	     // Switch to the new tab/window
+	    	     for (String handle : driver.getWindowHandles()) {
+	    	         driver.switchTo().window(handle);
+	    	     }
+	    	     
+	    	     
+	 
+	    	       // return true;
+	    	    } catch (Exception e) {
+	    	        System.out.println("Rates & Trends button not found or not clickable.");
+	    	        e.printStackTrace();
+	    	        //return false;
+	    	    }
+	      	      
+	      }
+	      public void showtrends() {  	  
+	    	  try {
+	    	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	 
+	    	        // Locate the element using XPath
+	    	        WebElement trends = driver.findElement(By.id("showTrendsId"));
+	 
+	    	        // Scroll into view using JavaScript
+//	    	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", ratesAndTrends);
+	 
+	    	        // Wait until it's visible and clickable
+	    	        wait.until(ExpectedConditions.visibilityOf(trends));
+	    	        wait.until(ExpectedConditions.elementToBeClickable(trends));
+	 
+	    	        // Optional: Click the button
+	    	        trends.click();
+
+	    	     // Switch to the new tab/window
+	    	     for (String handle : driver.getWindowHandles()) {
+	    	         driver.switchTo().window(handle);
+	    	     }
+	    	         	     
+	    	       // return true;
+	    	    } catch (Exception e) {
+	    	        System.out.println("Rates & Trends button not found or not clickable.");
+	    	        e.printStackTrace();
+	    	        //return false;
+	    	    }
+	      	      
+	      }
+	    	  
+	      }
+//	      
+//	      public void enterDataInteriorBudgetestimator() {
+//    	  
+//    	  try {
+//    	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+// 
+//    	        // Locate the element using XPath
+//    	        WebElement ratesAndTrends = driver.findElement(By.xpath("//div[@class='mb-home__tool-advice__card--title' and normalize-space(text())='Rates & Trends']/ancestor::a"));
+// 
+//    	        // Scroll into view using JavaScript
+//    	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", ratesAndTrends);
+// 
+//    	        // Wait until it's visible and clickable
+//    	        wait.until(ExpectedConditions.visibilityOf(ratesAndTrends));
+//    	        wait.until(ExpectedConditions.elementToBeClickable(ratesAndTrends));
+// 
+//    	        // Optional: Click the button
+//    	        ratesAndTrends.click();
+// 
+//    	       // return true;
+//    	    } catch (Exception e) {
+//    	        System.out.println("Rates & Trends button not found or not clickable.");
+//    	        e.printStackTrace();
+//    	        //return false;
+//    	    }	      
+//
+//	      }
+
+
+
 
 	
 	

@@ -1,3 +1,4 @@
+@FirstSceanrio
 Feature: Validate HomePage launch
 Scenario: Verify that the HomePage is launched successfully
 Given the user opens the configured browser
@@ -5,7 +6,7 @@ When the user navigate to the configured application URL
 Then the homepage should be displayed
 And the page title should be verified
 
-
+@secondScenario
  Scenario: Click Buy and navigate to Villas in Bangalore
     Given I am on the MagicBricks homepage
     When I click on the Buy module
@@ -26,8 +27,30 @@ Examples:
     | 0     | 1   |
    
 
-                                                                   
+@fourthscenario
+Scenario: User navigates to Ready-to-Move flats and clicks Post Property
+  Given the user is on  the homepage 
+  When the user clicks on the Buy option 
+  And the user clicks on the Ready to Move
+  Then the user should be navigated to Ready to move flats page
+  And the user clicks on zero brokerage using 
+  Then the Post Property page should be displayed successfully                                                                
     
+    
+@fifthscenario
+Scenario Outline: User navigates to the Rates and Trends
+    Given user is on the MagicBricks Home Page
+    And the user clicks on the Rates and Trend
+    And user enters project name from sheet <sheet> and row <row>
+    When user clicks on show Trends 
+    Then it should display the updated properties
+
+Examples:
+    | sheet | row |
+    | 1     | 0   |
+    | 1     | 1   |
+
+
     
     
     

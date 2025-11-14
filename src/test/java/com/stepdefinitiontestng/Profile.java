@@ -1,8 +1,14 @@
 package com.stepdefinitiontestng;
 
+import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -15,6 +21,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 
 public class Profile extends BaseSteps{
 	
@@ -51,22 +58,18 @@ public class Profile extends BaseSteps{
 		Assert.assertTrue(title.toLowerCase().contains("magicbricks"));
 	}
 	
-	// Clicking on Buy Module and selecting filters
+	//========================= second  Clicking on Buy Module and selecting filters===================================//
 	
 	@Given("I am on the MagicBricks homepage")
 	public void i_am_on_the_magic_bricks_homepage() {
 		 userpage = new UserPage(BaseSteps.driver, Hooks.test);
-		    Assert.assertTrue(userpage.verifyHomePage(), "Homepage is not displayed");
-
-	   
+		    Assert.assertTrue(userpage.verifyHomePage(), "Homepage is not displayed");   
 	}
 
 	@When("I click on the Buy module")
 	public void i_click_on_the_buy_module() {
 		Assert.assertTrue(userpage.clickBuyModule(), "Failed to click Buy module");
-		
-		
-	    
+		    
 	}
 
 	@And("I click on Villa in Bangalore")
@@ -84,7 +87,7 @@ public class Profile extends BaseSteps{
  
 	}
 	
-// Third Scenario
+//============================ Third Scenario=========================================================//
 	
 	
 	
@@ -92,9 +95,7 @@ public class Profile extends BaseSteps{
 	public void user_is_on_city_page() {
 		String url = prop.getProperty("cityPage");
 		userpage = new UserPage(driver, Hooks.test);
-		driver.get(url);
-		
-	    
+		driver.get(url);	    
 	}
 
 	@And("user enters city name from sheet {int} and row {int}")
@@ -106,28 +107,111 @@ public class Profile extends BaseSteps{
 		Assert.assertNotNull(nameOfCity, "Locality not found at sheet " + sheetIndex + ", row " + rowIndex);
 		System.out.println("City from Excel:" + nameOfCity);
 		//Assert.assertNotNull(userpage, "UserPage object is not initialized");
-		
 		userpage.enteringCityname(nameOfCity);
 	}
 
 	@When("user clicks on search button")
 	public void user_clicks_on_search_button() {
-		userpage.clickSearch();
-		
-	   
+		userpage.clickSearch();	   
 	}
 
 	@Then("it should display list of properties available")
-	public void it_should_display_list_of_properties_available() {
-	    
+	public void it_should_display_list_of_properties_available() {	    
 	}
+	
+//================================FourthScenario====================================================================//
+	
 
+@Given("the user is on  the homepage")
+public void the_user_is_on_the_homepage() {
+	String url = prop.getProperty("homepage");
+	userpage = new UserPage(driver, Hooks.test);
+	driver.get(url);  
+}
+
+@When("the user clicks on the Buy option")
+public void the_user_clicks_on_the_buy_option() {
+	boolean isClicked= userpage.clickBuyModule();
+	if(!isClicked) {
+		throw new AssertionError("Failed to click on Buy option");
+	}    
+}
+
+@And("the user clicks on the Ready to Move")
+public void the_user_clicks_on_the_ready_to_move() {
+	boolean isClicked = userpage.selectReadytoMove("Ready to Move");
+	if(!isClicked) {
+		throw new AssertionError("Failed to click on Ready to Move option");		
+	} 
+}
+
+@Then("the user should be navigated to Ready to move flats page")
+public void the_user_should_be_navigated_to_ready_to_move_flats_page() {
+	boolean isCorrect= userpage.verifyURL("https://www.magicbricks.com/ready-to-move-flats-in-bangalore-pppfs");
+	if(!isCorrect) {
+		throw new AssertionError("URL did not match expected Ready to Move flats page");
+	}  
+}
+
+
+@And("the user clicks on zero brokerage using")
+public void the_user_clicks_on_zero_brokerage_using() {
+	userpage.clickzerobrokerage();    
+}
+
+
+@Then("the Post Property page should be displayed successfully")
+public void the_post_property_page_should_be_displayed_successfully() {
+//	boolean isdis = userpage.selectdis("dis");
 	
+	System.out.println("Post Property page clicked successfully!");
 	
+	driver.quit();
 }
 	
 	
+	
+//======================================fifth Scenario========================================//
 
+
+@Given("user is on the MagicBricks Home Page")
+public void user_is_on_the_magic_bricks_home_page() {
+	String url = prop.getProperty("homepage1");
+	userpage = new UserPage(driver, Hooks.test);
+	driver.get(url); 
+	
+    
+}
+
+@And("the user clicks on the Rates and Trend")
+public void the_user_clicks_on_the_rates_and_trend() {
+	userpage.enterDataInteriorBudgetestimator();
+   
+}
+@And("user enters project name from sheet {int} and row {int}")
+public void user_enters_project_name_from_sheet_and_row(Integer int1, Integer int2) throws InterruptedException {
+	String search = ExcelReader.getCellDatas(ExcelReader.pathfiles, int1, int2, ExcelReader.SEARCH_COLUMN_INDEX);
+    System.out.println("Hospital from Excel: " + search);
+
+
+    WebElement searchInput = driver.findElement(By.id("keyword"));
+    searchInput.click();
+    searchInput.sendKeys(search);
+    searchInput.sendKeys(Keys.ARROW_DOWN);
+    searchInput.sendKeys(Keys.ENTER);
+   
+}
+@When("user clicks on show Trends")
+public void user_clicks_on_show_trends() {
+	userpage.showtrends();
+	
+}
+
+@Then("it should display the updated properties")
+public void it_should_display_the_updated_properties() {
+   
+}
+}
 
 
 
