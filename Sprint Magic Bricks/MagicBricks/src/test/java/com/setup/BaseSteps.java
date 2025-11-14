@@ -54,11 +54,24 @@ public class BaseSteps {
         }
     }
     
+//    public static void closeBrowser() {
+//        if (driver != null) {
+//            driver.quit();
+//            driver = null;
+//            System.out.println("Browser closed successfully!");
+//        }
+//    }
+//
+//    public static WebDriver getDriver() {
+//        return driver;
+//    }
+
     
-    public static void closeBrowser() {
-        driver.quit();
-        System.out.println("Browser closed successfully!");
-    }
+    
+//    public static void closeBrowser() {
+//        driver.quit();
+//        System.out.println("Browser closed successfully!");
+//    }
 	
 	
 	

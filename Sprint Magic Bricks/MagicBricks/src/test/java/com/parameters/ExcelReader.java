@@ -70,6 +70,33 @@ public class ExcelReader {
 		}
 	    
 	    
+
+//	    public static String getratesandtrends(String filePath, int sheetIndex, int rowIndex) {
+//	        try (FileInputStream fis = new FileInputStream(filePath);
+//	             Workbook workbook = new XSSFWorkbook(fis)) {
+//
+//	            Sheet sheet = workbook.getSheetAt(sheetIndex);
+//	            Row row = sheet.getRow(rowIndex);
+//	            if (row != null) {
+//	                Cell cell = row.getCell(0);
+//	                if (cell != null) {
+//	                    return cell.getStringCellValue().trim();
+//	                } else {
+//	                    System.out.println("Cell is null at row " + rowIndex);
+//	                }
+//	            } else {
+//	                System.out.println("Row is null at index " + rowIndex);
+//	            }
+//	        } catch (Exception e) {
+//	            e.printStackTrace();
+//	        }
+//
+//	        return null;
+//	    }
+//
+
+	    
+	    
 	    
 	    
 	    

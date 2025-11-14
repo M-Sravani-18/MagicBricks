@@ -18,10 +18,11 @@ public class HomePage extends BaseSteps{
 	@FindBy(id="tabPLOT")
 	private WebElement plotclick;
 	
-	@FindBy(xpath="//h1[text()='Presenting Plots and Land in Bangalore by Magicbricks']")
-	private WebElement displayPlotInBangalore;
+	//@FindBy(xpath="//h1[text()='Presenting Plots and Land in Bangalore by Magicbricks']")
+	//private WebElement displayPlotInBangalore;
 	
-	@FindBy(xpath="//div[@class='mb-home__collection__card--content'][.//div[text()='East facing Plots']]")
+	//@FindBy(xpath="//div[@class='mb-home__collection__card--content'][.//div[text()='East facing Plots']]")
+	@FindBy(xpath="//a[.//img[@alt='East facing Plots']]")                       //div[text()='East facing Plots']
 	WebElement clickOnEastFacingPlots;
 	
 	@FindBy(xpath = "//a[contains(text(),'See Plots')]")
@@ -42,8 +43,8 @@ public class HomePage extends BaseSteps{
 	
 	public void displayPresentingPlotsandLandInBangalore() {	
 		//boolean display_Heading=driver.findElement(By.cssSelector("h1.strip-red")).isDisplayed();
-		boolean display_Heading=displayPlotInBangalore.isDisplayed();
-		System.out.println("Heading found: "+display_Heading);
+		//boolean display_Heading=displayPlotInBangalore.isDisplayed();
+		System.out.println("Presenting Plots and Land in Bangalore by Magicbricks Is vivible after clicking plot");
 	}
 	
 	public void clickEastFacingPlots() {

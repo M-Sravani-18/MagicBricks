@@ -23,8 +23,9 @@ Then New projects page is loaded
 Scenario: Entering datain the search bar and navigating to poperty details
 Given the user is on the Homepage of the magicBricks
 When the user clicks on the plot option
-And enters the search data in the search bar
-And clicks on the search button
+And click on the see plots1
+Then navigate to the plots page and click click on the seeplots2
+
 
 @scenariooutlinefromexcel
 Scenario: Select budget from Excel2
@@ -35,6 +36,25 @@ Examples:
   | row | sheet |
   | 1   | 0     |
   | 2   | 0     |
+  
+
+@Budget
+Scenario: Validate budget functionality in plot
+Given user is on the home page
+And the user clicks on plot
+And user clicks Budget 
+And the user reads price from the excel sheet <sheet> <row>
+And click on search
+Then result is displayed
+
+Examples:
+  | row | sheet |
+  | 1   | 0     |
+  | 2   | 0     |
+
+
+
+
 
 
 

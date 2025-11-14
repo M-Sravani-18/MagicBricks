@@ -16,6 +16,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.pages.BasePage.BrowserUtils;
 import com.parameters.ExcelReader;
 import com.parameters.PropertyReader;
 import com.setup.BaseSteps;
@@ -24,10 +25,18 @@ public class SearchPage extends BaseSteps{
 	
 	Properties prop = PropertyReader.readProperty();
 	
+	HomePage homepage = new HomePage();
+	
 	@FindBy(id="tabPLOT")
 	private WebElement plotclick;
 	
 //	WebDriver driver=BaseSteps.driver;
+	
+	 public SearchPage(WebDriver driver) {
+	        this.driver = driver;
+	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	    }
+
 	
 	public SearchPage() {
         PageFactory.initElements(driver, this);
@@ -38,112 +47,72 @@ public class SearchPage extends BaseSteps{
 		
 	}
 	
-		 // method to enter search details
-	    public void enterSearchDetailsFromExcel() throws InterruptedException {
-	    	
-	    	    	    
-	    	    	    //String filePath = "C:\\Training Materials\\Sprint Magic Bricks\\MagicBricks\\src\\test\\resources\\Exceldata\\DataTest.xlsx";
-	    	String path1=prop.getProperty("filePath");
-	    	    	    String sheetName = "Sheet1";
-	    	    	    //String browser = prop.getProperty("browserName"); 
-	    	    	    
-	    	    	    
-	    	    	    List<String[]> testData = ExcelReader.readExcelData(path1, sheetName);
-//	    	    	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//	    	    	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    	    	    
-	    	    	    for (String[] row : testData) {
-	    	    	        String city = row[0];
-	    	    	        String budget = row[1];
-
-	    	    	        System.out.println("Starting search for  City: " + city + ", Budget: " + budget);
-	    	    	        
-	    	    	     // Launch browser inside the loop
-	    	    	        launchBrowser(); // make sure this returns a WebDriver
-	    	    	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		    	    	    JavascriptExecutor js = (JavascriptExecutor) driver;
-		    	    	    
-	    	    	        
-	    	    	        try {
-	    	    	        
-	    	    	     // Step 1: Enter city
-	    	    	        WebElement locationInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[contains(@class,'mb-search__input')]")));
-	    	    	      //  WebElement locationInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input#keyword")));
-	    	    	        locationInput.clear();
-	    	    	        locationInput.sendKeys(city); 
-	    	    	        
-	    	    	        
-	    	    	        WebElement budgetDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".buy_budget_lbl")));
-   	    	            budgetDropdown.click(); // Open dropdown
-  	    	            Thread.sleep(1000); // Allow options to render
-	    	    	        
-	    	    	        //Step 2: Select budget dynamically
-	    	    	        String budgetXPath = "";
-
-	    	    	        if (budget.equalsIgnoreCase("5 Lac")) {
-	    	    	        	budgetXPath = String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);
-
-	    	    	            //budgetXPath = "//li[contains(text(),'5 Lac')]";
-	    	    	        } else if (budget.equalsIgnoreCase("10 Lac")) {
-	    	    	        budgetXPath = "//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹10 Lac')]";
-
-	    	    	            //budgetXPath = "//div[contains(text(),'10 Lac')]";
-	    	    	        } else {
-	    	    	            budgetXPath = String.format("//*[contains(text(),'%s')]", budget);
-	    	    	        }
-
-	    	    	        WebElement budgetElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(budgetXPath)));
-	    	    	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", budgetElement);
-	    	    	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", budgetElement);
-	    	    	        System.out.println(" Budget selected: " + budget);
-
-	    	    	        // Step 3: Click the search button
-	    	    	        WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.mb-search__btn")));
-	    	    	       // WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.mb-search__btn")));
-	    	    	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", searchBtn);
-	    	    	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", searchBtn);
-	    	    	        System.out.println("Search clicked for: " + city + " - " + budget);
-
-
-	    	    	     // ⏳ Step 4: Wait for 10 seconds
-	    	    	        Thread.sleep(10000);
-	    	    	        System.out.println("Waited 10 seconds after search");
-	    	    	   
+	public void clickSeePlots1() {
+	    try {
+	        WebElement seePlots1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(@class,'seepmore') and (contains(text(),'See') or contains(text(),'Plot'))])[1]")));
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", seePlots1);
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", seePlots1);
+	        System.out.println("Clicked on See Plots 1.");
 	    } catch (Exception e) {
-	        System.out.println("Error during search for: " + city + " - ₹" + budget + " → " + e.getMessage());
-	    } finally {
-	        driver.quit(); // Always close browser
-	        System.out.println("Browser closed for: " + city);
+	        System.out.println("Error clicking See Plots 1.");
+	        e.printStackTrace();
 	    }
+	}
 
+	public void clickSeePlots2() {
+	    try {
+	        // Optional: wait for navigation or new tab
+	        BrowserUtils.switchToNewTab(driver); // if it opens in a new tab
 
-	    	    	    
-	    	    	    }
-
-	    }    	    	            	    	     
-	
-	public void clickOnSearch() {
-		
-		System.out.println("Search clicked suucessfully");
-		
-		  
-	}  
-	
-	//==================================================================================================================
-	// 4 Scenario 
-	//=================================================================================================================
+	        WebElement seePlots2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"aboutWraperSection\"]/div[1]/div[1]/div[2]/a")));
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", seePlots2);
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", seePlots2);
+	        System.out.println("Clicked on See Plots 2.");
+	    } catch (Exception e) {
+	        System.out.println("Error clicking See Plots 2.");
+	        e.printStackTrace();
+	    }
+	}
 	
 	
 	
 	
-	@FindBy(xpath = "//input[contains(@class,'mb-search__input")
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//==================================================================================================================//
+	//                                                4 Scenario                                                        //
+	//=================================================================================================================//
+	
+	@FindBy(xpath = "//input[contains(@class,'mb-search__input]")
 	WebElement inputFields;
 	
 	@FindBy(css = "div.mb-search__btn")
 	WebElement searchButton;
 	
-
-
       public boolean enteringCityname(String cname) throws InterruptedException
       {
     	  try {
@@ -157,19 +126,18 @@ public class SearchPage extends BaseSteps{
 			BaseSteps.sleep(3000);
 			return true;
 		  } catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			return false;
 		  }
 			
       }
-      
       
       public boolean clickSearch()
 		{
 			try
 			{
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-				//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));//
+		
 				wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 				searchButton.click();
 				BaseSteps.sleep(5000);
@@ -182,79 +150,80 @@ public class SearchPage extends BaseSteps{
 			}
 
 		}
+      
+      
+      
+      
+      
+      
+      //======================================================================================
+      //                    5th Scenario                                                   
+      //======================================================================================
+      public void clickPlot1() {
+    	   // WebElement plotButton = driver.findElement(By.id("plotBtn")); // Adjust locator
+    	   // plotButton.click();
+    	    plotclick.click();
+    	}
+
+    	public void clickBudget() {
+    	    WebElement budgetButton = driver.findElement(By.xpath("//div[@class='mb-search__title']//span[text()='Budget']")); // Adjust locator
+    	    budgetButton.click();
+    	}
+    	
+
+    	public void enterBudget(String budget) {
+    		
+    		// Locate the budget input field (adjust the ID as needed)
+    		 WebElement budgetInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".buy_budget_lbl")));
+    	   // WebElement  = driver.findElement(By.xpath("//*[@id=\"commercialIndex\"]/section[1]/div/div[1]/div[3]/div[4]/div[1]")); // Replace with actual ID
+
+    	    // Clear and enter the budget value
+    	   // budgetInput.clear();
+    		 
+    		 
+    		  //Step 2: Select budget dynamically
+ 	        String budgetXPath = "";
+
+ 	        if (budget.equalsIgnoreCase("5 Lac")) {
+ 	        	budgetXPath = String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);  
+
+ 	            //budgetXPath = "//li[contains(text(),'5 Lac')]";
+ 	        } else if (budget.equalsIgnoreCase("10 Lac")) {
+ 	        	  budgetXPath=	String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);  
+
+ 	      // = "//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹10 Lac')]";
+ 	        	  
+
+ 	            //budgetXPath = "//div[contains(text(),'10 Lac')]";
+ 	        } else {
+ 	            budgetXPath = String.format("//*[contains(text(),'%s')]", budget);
+ 	        }
+
+ 	        WebElement budgetElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(budgetXPath)));
+ 	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", budgetElement);
+ 	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", budgetElement);
+ 	        System.out.println(" Budget selected: " + budget);
+ 	        
+ 	        
+ 	       // Step 3: Click the search button
+	        WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.mb-search__btn")));
+	       // WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.mb-search__btn")));
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", searchBtn);
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", searchBtn);
+	       // System.out.println("Search clicked for: " + city + " - " + budget);
+//	        driver.findElement(By.cssSelector("span.mb-srp__loanelgb__cta")).click();
+//			homepage.clickOnNewProjects();
+//			
+    	}
+     
+	
+
+
+
 
 	
 	
-	
-//	public boolean enterCityAndSearch(String city) {
-//	    boolean result = true;
-//	    try {
-//	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-//	        // Step 1: Enter city name
-//	        WebElement locationInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[contains(@class,'mb-search__input')]")));
-//	        locationInput.clear();
-//	        locationInput.sendKeys(city);
-//	        locationInput.sendKeys(Keys.ENTER);
-//
-//	        Thread.sleep(2000); // Let suggestions load
-//
-//	        // Step 2: Click search button
-//	        WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(
-//	            By.cssSelector(".mb-search__btn")));
-//	        searchButton.click();
-//
-//	        System.out.println("Search triggered for: " + city);
-//	    } catch (Exception e) {
-//	        result = false;
-//	        System.out.println("Failed to search for city: " + city);
-//	        e.printStackTrace();
-//	    }
-//	    return result;
-//	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	    }
-
-
-	
-	
-
-	
-
-	
-	
-	
+}
 	
 	
 	
