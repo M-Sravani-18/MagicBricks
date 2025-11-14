@@ -2,8 +2,6 @@ package com.stepDefinitionTestNG;
 
 import java.util.Properties;
 
-import org.testng.Assert;
-
 import com.pages.HomePage;
 import com.parameters.PropertyReader;
 import com.setup.BaseSteps;
@@ -17,7 +15,11 @@ public class Profile  extends BaseSteps{
 	 
     Properties prop=PropertyReader.readProperty();
 	HomePage homePage;
-    
+	public Profile() {
+        //this.driver = Hooks.getDriver(); // or however you're managing driver
+        this.homePage = new HomePage(driver);
+    }
+
 
 	@Given("the user launches the MagicBricks homepage")
 	public void the_user_launches_the_magic_bricks_homepage() {
@@ -31,7 +33,7 @@ public class Profile  extends BaseSteps{
 	}
 
 	@And("the user clicks on the PG in Banglore option")
-	public void the_user_clicks_on_the_pg_in_banglore_option()  {
+	public void the_user_clicks_on_the_pg_in_banglore_option() throws InterruptedException  {
 		homePage.clickPgInBangalore();
 	}
 
@@ -55,19 +57,19 @@ public class Profile  extends BaseSteps{
 	}
 	
 	
-
-@When("the user clicks on the Brand Filter")
-public void the_user_clicks_on_the_brand_filter() {
-    // Write code here that turns the phrase above into concrete actions
-	
-    
-}
-
-@Then("validate the page based on text")
-public void validate_the_page_based_on_text() {
-    // Write code here that turns the phrase above into concrete actions
-    
-}
+//
+//@When("the user clicks on the Brand Filter")
+//public void the_user_clicks_on_the_brand_filter() {
+//    // Write code here that turns the phrase above into concrete actions
+//	
+//    
+//}
+//
+//@Then("validate the page based on text")
+//public void validate_the_page_based_on_text() {
+//    // Write code here that turns the phrase above into concrete actions
+//    
+//}
 
 
 
