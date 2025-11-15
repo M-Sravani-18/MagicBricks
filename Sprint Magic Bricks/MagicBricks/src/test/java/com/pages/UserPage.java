@@ -7,7 +7,10 @@ import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,6 +20,18 @@ import com.parameters.PropertyReader;
 import com.setup.BaseSteps;
 
 public class UserPage extends BaseSteps {
+	
+	@FindBy(id="tabPLOT")
+	private WebElement plotclick;
+	
+	@FindBy(xpath = "(//div[@class='mb-home__collection__card__title' and text()='Plots in Gated Community'])[1]")
+	private WebElement firstGatedCommunityPlot;
+
+
+	 public UserPage() {
+	        PageFactory.initElements(driver, this);
+	    }
+
 	
 	public void launchBrowserPage() {
 		launchBrowser();
@@ -38,9 +53,6 @@ public class UserPage extends BaseSteps {
 	    }
 	 
 	 public void verifyApplicationTitle() {
-	       // Properties prop = PropertyReader.readProperty();
-	        // Optional if you have expectedTitle in properties
-	        // String expectedTitle = prop.getProperty("sourceTitle");
 	        String actualTitle = driver.getTitle();
 	        Assert.assertNotNull(actualTitle, "Application title is null!");
 	        Assert.assertFalse(actualTitle.trim().isEmpty(), "Application title is empty!");
@@ -50,50 +62,54 @@ public class UserPage extends BaseSteps {
 	 public void verifyPlotDisplayed() {
 		 
 		
-		    WebElement plot = driver.findElement(By.id("tabPLOT")); // or use a getter from HomePage
-		    boolean isDisplayed = plot.isDisplayed();
+		    //WebElement plot = driver.findElement(By.id("tabPLOT")); // or use a getter from HomePage
+		    boolean isDisplayed = plotclick.isDisplayed();
 		    Assert.assertTrue(isDisplayed, "The plot is not displayed!");
 		    System.out.println("The plot is displayed successfully!");
-
-//	        HomePage home = new HomePage();
-//	        boolean isDisplayed = .isDisplayed();
-//	        Assert.assertTrue(isDisplayed, "The plot is not displayed!");
-//	        System.out.println("The plot is displayed successfully!");
     }
 	 
 	 public void verifyPlotClickable() {
 	      
-		   WebElement plotElement=driver.findElement(By.id("tabPLOT"));
-	        Assert.assertTrue(plotElement.isEnabled(), "The plot is not clickable!");
-	        plotElement.click();
+		   //WebElement plotElement=driver.findElement(By.id("tabPLOT"));
+	        Assert.assertTrue(plotclick.isEnabled(), "The plot is not clickable!");
+	        plotclick.click();
 	        System.out.println("The plot was clickable and clicked successfully!");
 	    }
 	 
 	 public void clickOnPltsInGatedCommunity() {
 		 
+		 
 		 try {
 		        BrowserUtils.switchToNewTab(driver);
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		        
+
+		        // Ensure plot tab is clickable
 		        verifyPlotClickable();
-		        
-		        
-		        List<WebElement> plots = driver.findElements(By.xpath("//div[@class='mb-home__collection__card__title' and text()='Plots in Gated Community']"));
-		        if (!plots.isEmpty()) {
-		            plots.get(0).click(); // Clicks the first match
-		        }
-		        System.out.println("The plot in Gated Community was clicked successfully!");
+
+		        // Wait for the gated community plot to be visible and clickable
+		        wait.until(ExpectedConditions.visibilityOf(firstGatedCommunityPlot));
+		        Assert.assertTrue(firstGatedCommunityPlot.isDisplayed(), "'Plots in Gated Community' is not displayed!");
+		        Assert.assertTrue(firstGatedCommunityPlot.isEnabled(), " 'Plots in Gated Community' is not clickable!");
+
+		        // Scroll and click
+		        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", firstGatedCommunityPlot);
+		        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", firstGatedCommunityPlot);
+
+		        System.out.println("'Plots in Gated Community' was clicked successfully!");
+
 		    } catch (NoSuchElementException e) {
-		        System.out.println("Element not present in DOM: " + e.getMessage());
+		        System.out.println("Element not found: " + e.getMessage());
 		    } catch (Exception e) {
 		        System.out.println("Unexpected error while clicking plot: " + e.getMessage());
 		    }
-	    }
+
+		 
+		 
+		 
+	 }
+		 
+
 	 
-	 
-//	 public static void closeHomepage() {
-//	        closeBrowser();
-//	    }
 	}
 
 
