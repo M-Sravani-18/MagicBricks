@@ -21,13 +21,14 @@ public class Profile extends BaseSteps{
 	
 	Properties prop = PropertyReader.readProperty();
 	
-	
+	//==========================================================  Scenario1-UserPage  =========================================================================
 	
 	UserPage userpage=new UserPage();
 	
+	
 	@Given("the user lauches the browser")
 	public void the_user_lauches_the_browser() {
-		//userpage.launchBrowserPage();
+		System.out.println("User is on the HomePage Of tthe Magic Bricks");
 		
 	}
 
@@ -52,8 +53,6 @@ public class Profile extends BaseSteps{
 	
 	@Then("the plot is displayed")
 	public void the_plot_is_displayed() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 		userpage.verifyPlotDisplayed();
 		
 		
@@ -61,8 +60,6 @@ public class Profile extends BaseSteps{
 	
 	@Then("the plot is clickable")
 	public void the_plot_is_clickable() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 userpage.verifyPlotClickable();
 
 	
@@ -70,118 +67,101 @@ userpage.verifyPlotClickable();
 	
 	@When("user click on the Plots in Gated Community")
 	public void user_click_on_the_plots_in_gated_community() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 		userpage.clickOnPltsInGatedCommunity();
 	}
 
 	
-	// =========================================================================================================
+	
+	
+	//==========================================================  Scenario2-HomePage  ==========================================================================
+	
 	
 	
 HomePage homepage=new HomePage();
 	
 	@Given("user on the Homepage")
 	public void user_on_the_homepage() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
+	    System.out.println("User is on the HomePage");
 	}
 
 	@Then("click on plot")
 	public void click_on_plot() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
+	   
 		homepage.clickPlot();
 	}
 
 	@Then("It displays presenting plots and lands in Bangalore")
 	public void it_displays_presenting_plots_and_lands_in_bangalore() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		//System.out.println("Presenting plots and lands in Bangalore");
+	   
 		homepage.displayPresentingPlotsandLandInBangalore();
 	}
 
 	@When("user clicks on East Facing Plots Explore button")
 	public void user_clicks_on_east_facing_plots_explore_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
+	    
 		homepage.clickEastFacingPlots();
 	}
 
 	@Then("user goes to the East Facing Plots listing page")
 	public void user_goes_to_the_east_facing_plots_listing_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
+	    
 		System.out.println("User is on the East facing page");
 	}
 
 	@Then("select on the New projects")
 	public void select_on_the_new_projects() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
+	    
 		homepage.clickOnNewProjects();
 	}
 
 	@Then("New projects page is loaded")
 	public void new_projects_page_is_loaded() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
+	    System.out.println("Navigated to the New Projects See plots Successfully");
 	}
 
 	
 	
-	//================================================================================================================
+	//==========================================================  Scenario3-SearchPage  ==========================================================================
 	
-	
-	
-	
+		
 	SearchPage searchpage=new SearchPage();
-	SearchPage searchPage = new SearchPage(BaseSteps.driver);
+	
 
 	@Given("the user is on the Homepage of the magicBricks")
 	public void the_user_is_on_the_homepage_of_the_magic_bricks() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 		System.out.println("User is on the home page");
 	}
 
 	@When("the user clicks on the plot option")
 	public void the_user_clicks_on_the_plot_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 		searchpage.clickPlot();
 		
 	}
 	
 	@When("click on the see plots1")
 	public void click_on_the_see_plots1() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 		searchpage.clickSeePlots1();
 	}
 
 	@Then("navigate to the plots page and click click on the seeplots2")
 	public void navigate_to_the_plots_page_and_click_click_on_the_seeplots2() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 		searchpage.clickSeePlots2();
 	}
 	
-//	@When("enters the search data in the search bar")
-//	public void enters_the_search_data_in_the_search_bar_sheet_no() throws InterruptedException {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    //throw new io.cucumber.java.PendingException();
-//		searchpage.enterSearchDetailsFromExcel();
-//	}
-//
-//	@When("clicks on the search button")
-//	public void clicks_on_the_search_button() {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    //throw new io.cucumber.java.PendingException();
-//		searchpage.clickOnSearch();
-//		driver.quit();
-//	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	//==============================================================================================
 	//===============================================================================================

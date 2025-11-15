@@ -1,5 +1,5 @@
 Feature: Home page load verification
-@HOMEPAGE
+@Scenario1
 Scenario: Verify that homepage loads successfully
 Given the user lauches the browser
 When the user navigates to the application URL 
@@ -9,7 +9,7 @@ And the plot is displayed
 And the plot is clickable
 When user click on the Plots in Gated Community
 
-@Plot
+@Scenario2
 Scenario: Navigate to East Facing Plot
 Given user on the Homepage
 Then click on plot
@@ -19,17 +19,18 @@ Then user goes to the East Facing Plots listing page
 And select on the New projects
 Then New projects page is loaded
 
-@Search
-Scenario: Entering datain the search bar and navigating to poperty details
+@Scenario3
+Scenario: Navigate to See Plots from Investment Corridor
 Given the user is on the Homepage of the magicBricks
 When the user clicks on the plot option
 And click on the see plots1
 Then navigate to the plots page and click click on the seeplots2
 
 
-@scenariooutlinefromexcel
+@Scenario4
 Scenario: Select budget from Excel2
 Given the user on the Homepage
+When the user clicks on the plot option
 And enter budget in the budget box <row> <sheet>
 
 Examples:
@@ -38,7 +39,7 @@ Examples:
   | 2   | 0     |
   
 
-@Budget
+@Scenario5
 Scenario: Validate budget functionality in plot
 Given user is on the home page
 And the user clicks on plot

@@ -15,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.pages.BasePage.BrowserUtils;
 import com.parameters.ExcelReader;
@@ -25,37 +26,50 @@ public class SearchPage extends BaseSteps{
 	
 	Properties prop = PropertyReader.readProperty();
 	
-	HomePage homepage = new HomePage();
+	
+	public SearchPage() {
+	        this.driver = BaseSteps.driver; // Ensure driver is inherited from BaseSteps
+	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	        PageFactory.initElements(driver, this);
+	    }
+
+	//================================================================  Scenario-3 ================================================================================
+	
 	
 	@FindBy(id="tabPLOT")
 	private WebElement plotclick;
 	
-//	WebDriver driver=BaseSteps.driver;
+	@FindBy(xpath ="(//span[contains(@class,'seepmore') and (contains(text(),'See') or contains(text(),'Plot'))])[1]")
+	private WebElement seePlots1;
 	
-	 public SearchPage(WebDriver driver) {
-	        this.driver = driver;
-	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-	    }
+	
+	@FindBy(xpath="//*[@id=\"aboutWraperSection\"]/div[1]/div[1]/div[2]/a")
+	private WebElement seePlots2;
 
-	
-	public SearchPage() {
-        PageFactory.initElements(driver, this);
-    }
-	
+
 	public void clickPlot() {
-		plotclick.click();
-		
+		 Assert.assertTrue(plotclick.isDisplayed(), " Plot tab is not visible.");
+		    Assert.assertTrue(plotclick.isEnabled(), " Plot tab is not clickable.");
+		    plotclick.click();
+		    System.out.println(" Plot tab clicked successfully.");		
 	}
 	
 	public void clickSeePlots1() {
 	    try {
-	        WebElement seePlots1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(@class,'seepmore') and (contains(text(),'See') or contains(text(),'Plot'))])[1]")));
+	       // WebElement seePlots1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(@class,'seepmore') and (contains(text(),'See') or contains(text(),'Plot'))])[1]")));
+	    	wait.until(ExpectedConditions.elementToBeClickable(seePlots1));
+
+	        Assert.assertTrue(seePlots1.isDisplayed(), " 'See Plots 1' is not visible.");
+	        Assert.assertTrue(seePlots1.isEnabled(), " 'See Plots 1' is not clickable.");
+
 	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", seePlots1);
 	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", seePlots1);
 	        System.out.println("Clicked on See Plots 1.");
 	    } catch (Exception e) {
 	        System.out.println("Error clicking See Plots 1.");
-	        e.printStackTrace();
+	        Assert.fail(" Error clicking See Plots 1: " + e.getMessage());
+
+	       
 	    }
 	}
 
@@ -64,13 +78,22 @@ public class SearchPage extends BaseSteps{
 	        // Optional: wait for navigation or new tab
 	        BrowserUtils.switchToNewTab(driver); // if it opens in a new tab
 
-	        WebElement seePlots2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"aboutWraperSection\"]/div[1]/div[1]/div[2]/a")));
+	        //WebElement seePlots2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"aboutWraperSection\"]/div[1]/div[1]/div[2]/a")));
+	        
+	        wait.until(ExpectedConditions.elementToBeClickable(seePlots2));
+
+
+	        Assert.assertTrue(seePlots2.isDisplayed(), " 'See Plots 2' is not visible.");
+	        Assert.assertTrue(seePlots2.isEnabled(), " 'See Plots 2' is not clickable.");
+
+	        
 	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", seePlots2);
 	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", seePlots2);
 	        System.out.println("Clicked on See Plots 2.");
 	    } catch (Exception e) {
 	        System.out.println("Error clicking See Plots 2.");
-	        e.printStackTrace();
+	        Assert.fail(" Error clicking See Plots 2: " + e.getMessage());
+
 	    }
 	}
 	
@@ -78,60 +101,58 @@ public class SearchPage extends BaseSteps{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	//==================================================================================================================//
 	//                                                4 Scenario                                                        //
 	//=================================================================================================================//
 	
-	@FindBy(xpath = "//input[contains(@class,'mb-search__input]")
-	WebElement inputFields;
-	
+//	@FindBy(xpath = "//input[contains(@class,'mb-search__input')]")
+//	WebElement cityInput;
+//	
 	@FindBy(css = "div.mb-search__btn")
 	WebElement searchButton;
 	
-      public boolean enteringCityname(String cname) throws InterruptedException
+      public void enteringCityname(String cityName) throws InterruptedException
       {
-    	  try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    	  
+    	  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    	    JavascriptExecutor js = (JavascriptExecutor) driver;
 
-			wait.until(ExpectedConditions.visibilityOf(inputFields));
-			wait.until(ExpectedConditions.elementToBeClickable(inputFields));
-			inputFields.clear();
-			inputFields.click();
-			inputFields.sendKeys(cname);
-			BaseSteps.sleep(3000);
-			return true;
-		  } catch (Exception e) {
-			
-			return false;
-		  }
-			
-      }
-      
+    	    // Step 1: Click into the city input field
+    	    WebElement cityInput = wait.until(ExpectedConditions.elementToBeClickable(
+    	        By.xpath("//input[contains(@class,'mb-search__input')]")));
+    	    cityInput.click();
+    	    Thread.sleep(500); // allow UI to activate
+
+    	    // Step 2: Clear Bangalore tag if present
+    	    try {
+    	        WebElement closeTag = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.cssSelector("div.mb-search__tag-close[data-text='Bangalore']")));
+    	        js.executeScript("arguments[0].click();", closeTag);
+    	        System.out.println(" Cleared Bangalore tag");
+    	        Thread.sleep(500);
+    	    } catch (Exception e) {
+    	        System.out.println(" No Bangalore tag to clear");
+    	    }
+
+    	    // Step 3: Clear and type the new city
+    	    cityInput.sendKeys(Keys.CONTROL + "a");
+    	    cityInput.sendKeys(Keys.DELETE);
+    	    cityInput.sendKeys(cityName);
+    	    Thread.sleep(2000); // wait for dropdown
+    	    cityInput.sendKeys(Keys.CONTROL + "a");
+    	    cityInput.sendKeys(Keys.DELETE);
+    	    
+    	    driver.findElement(By.xpath("(//a[@href='https://www.magicbricks.com/agricultural-land-for-sale-in-bangalore-pppfs' and .//div[text()='Agriculture Land']])[1]")).click();
+    	    
+ 
+    	  
+    	    }
+
+    	  
+    	  
+  
       public boolean clickSearch()
 		{
 			try
@@ -160,8 +181,6 @@ public class SearchPage extends BaseSteps{
       //                    5th Scenario                                                   
       //======================================================================================
       public void clickPlot1() {
-    	   // WebElement plotButton = driver.findElement(By.id("plotBtn")); // Adjust locator
-    	   // plotButton.click();
     	    plotclick.click();
     	}
 
@@ -170,7 +189,6 @@ public class SearchPage extends BaseSteps{
     	    budgetButton.click();
     	}
     	
-
     	public void enterBudget(String budget) {
     		
     		// Locate the budget input field (adjust the ID as needed)
@@ -184,11 +202,11 @@ public class SearchPage extends BaseSteps{
     		  //Step 2: Select budget dynamically
  	        String budgetXPath = "";
 
- 	        if (budget.equalsIgnoreCase("5 Lac")) {
+ 	        if (budget.equalsIgnoreCase(budget)) {
  	        	budgetXPath = String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);  
 
  	            //budgetXPath = "//li[contains(text(),'5 Lac')]";
- 	        } else if (budget.equalsIgnoreCase("10 Lac")) {
+ 	        } else if (budget.equalsIgnoreCase(budget)) {
  	        	  budgetXPath=	String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);  
 
  	      // = "//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹10 Lac')]";
