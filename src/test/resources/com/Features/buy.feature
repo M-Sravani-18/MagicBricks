@@ -1,5 +1,5 @@
-@FirstSceanrio
 Feature: Validate HomePage launch
+@FirstSceanrio
 Scenario: Verify that the HomePage is launched successfully
 Given the user opens the configured browser
 When the user navigate to the configured application URL

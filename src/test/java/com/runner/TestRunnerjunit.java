@@ -15,8 +15,9 @@ import io.cucumber.junit.CucumberOptions;
         },
         plugin = {
                 "pretty",
-                "html:target/JUnit-Cucumber-Report.html"
-        }
+                "html:target/JUnit-Cucumber-Report.html"},
+              tags = "@secondScenario"
+        
 )
 public class TestRunnerjunit {
  

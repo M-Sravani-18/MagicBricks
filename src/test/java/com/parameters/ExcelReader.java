@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
@@ -61,4 +62,16 @@ public class ExcelReader {
 	    }
 	    return cellValue;
 	}
+	    public static String readData(Integer int1, Integer int2) throws Exception {
+	        String excelPath = "src/test/resources/com/Excel/Filters.xlsx"; // your Excel path
+	        FileInputStream fis = new FileInputStream(excelPath);
+	        Workbook wb = WorkbookFactory.create(fis);
+	        Sheet sheet = wb.getSheetAt(int1);
+	        String pickup = sheet.getRow(int2).getCell(0).getStringCellValue();
+	        wb.close();
+	        fis.close();
+	        return pickup;
+	    }
 }
+
+	

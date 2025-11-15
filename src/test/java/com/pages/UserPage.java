@@ -40,6 +40,7 @@ public class UserPage {
 	public String getCurrentURL() {
 		return getDriver().getCurrentUrl();
 	}
+//=======================================Second Sceanrio====================================================//
 
 	//  Verify homepage
 	public boolean verifyHomePage() {
@@ -241,6 +242,15 @@ public class UserPage {
 	      @FindBy(id="showTrendsId")
 	      WebElement trendsBtn;
 	      
+	      @FindBy(id ="keyword")
+	      WebElement clickSearchPlace;
+	      
+	      @FindBy(xpath="//*[@id=\"keyword_suggest\"]/div[2]")
+	      WebElement location;
+	       
+	      @FindBy(xpath="//div[text()='Locality Average Price']")
+	      static WebElement heading;
+	      
 	      public void enterDataInteriorBudgetestimator() {  	  
 	    	  try {
 	    	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -271,8 +281,27 @@ public class UserPage {
 	    	        e.printStackTrace();
 	    	        //return false;
 	    	    }
-	      	      
 	      }
+	      public boolean clickAndEnterAirportLocation1(String location) throws InterruptedException {
+	    		// TODO Auto-generated method stub
+	    		boolean actResult = true;
+	    	   
+	    	    	wait.until(ExpectedConditions.visibilityOf(clickSearchPlace));
+	    	    	clickSearchPlace.click();
+	    	    	Thread.sleep(3000);
+	    	    	clickSearchPlace.sendKeys(location);
+	    	    	Thread.sleep(3000);
+	    	       
+	    	    	
+	    	   
+	    	    return actResult;
+	    	}
+	      public boolean selectFirstDropdownOption() {
+	    		boolean actResult = true;
+	    		// TODO Auto-generated method stub
+	    		location.click();
+	    		return actResult;
+	    	}
 	      public void showtrends() {  	  
 	    	  try {
 	    	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -304,7 +333,22 @@ public class UserPage {
 	      	      
 	      }
 	    	  
+	      
+
+	      public static boolean isHeadingVisible() {
+	    	  //  WebElement confirmationSection = driver.findElement(
+	    	  //      org.openqa.selenium.By.xpath("//*[contains(text(),'" + confirmationText + "')]"));
+	    	  //  scrollToElement(confirmationSection);
+	    	  //  return confirmationSection.isDisplayed();
+	    	  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	    	  wait.until(ExpectedConditions.visibilityOf(heading));
+	    	  // Reports.generateReport(driver, test, Status.PASS, "heading is visible.");
+	    	  return wait.until(ExpectedConditions.visibilityOf(heading)).isDisplayed();
 	      }
+}
+
+
+
 //	      
 //	      public void enterDataInteriorBudgetestimator() {
 //    	  

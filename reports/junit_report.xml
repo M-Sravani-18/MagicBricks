@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="158.959" tests="7" skipped="0" failures="5" errors="0" timestamp="2025-11-14T16:25:46.172050100Z">
-<testcase classname="Validate HomePage launch" name="Verify that the HomePage is launched successfully" time="10.103">
+<testsuite name="Cucumber" time="161.051" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-11-15T12:52:13.965998500Z">
+<testcase classname="Validate HomePage launch" name="Verify that the HomePage is launched successfully" time="9.679">
 <system-out><![CDATA[
 Given the user opens the configured browser.................................passed
 When the user navigate to the configured application URL....................passed
@@ -8,72 +8,41 @@ Then the homepage should be displayed.......................................pass
 And the page title should be verified.......................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Validate HomePage launch" name="Click Buy and navigate to Villas in Bangalore" time="41.487">
-<failure type="java.lang.AssertionError" message="Failed to click Villa in Bangalore expected [true] but found [false]">
-<![CDATA[java.lang.AssertionError: Failed to click Villa in Bangalore expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1590)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.stepdefinitiontestng.Profile.i_click_on_villa_in_bangalore(Profile.java:77)
-	at ✽.I click on Villa in Bangalore(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:13)
-]]>
-</failure>
+<testcase classname="Validate HomePage launch" name="Click Buy and navigate to Villas in Bangalore" time="12.844">
 <system-out><![CDATA[
 Given I am on the MagicBricks homepage......................................passed
 When I click on the Buy module..............................................passed
-And I click on Villa in Bangalore...........................................failed
-Then I should be redirected to the Villas in Bangalore listings page........skipped
+And I click on Villa in Bangalore...........................................passed
+Then I should be redirected to the Villas in Bangalore listings page........passed
 ]]></system-out>
 </testcase>
-<testcase classname="Validate HomePage launch" name="User cityPage - #1.1" time="12.752">
-<failure type="java.lang.AssertionError" message="Locality not found at sheet 0, row 0 expected object to not be null">
-<![CDATA[java.lang.AssertionError: Locality not found at sheet 0, row 0 expected object to not be null
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.assertNotNull(Assert.java:1496)
-	at com.stepdefinitiontestng.Profile.user_enters_city_name_from_sheet_and_row(Profile.java:107)
-	at ✽.user enters city name from sheet 0 and row 0(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:20)
-]]>
-</failure>
+<testcase classname="Validate HomePage launch" name="User cityPage - #1.1" time="23.144">
 <system-out><![CDATA[
 Given user is on cityPage...................................................passed
-And user enters city name from sheet 0 and row 0............................failed
-When user clicks on search button...........................................skipped
-Then it should display list of properties available.........................skipped
+And user enters city name from sheet 0 and row 0............................passed
+When user clicks on search button...........................................passed
+Then it should display list of properties available.........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Validate HomePage launch" name="User cityPage - #1.2" time="22.982">
-<failure type="java.lang.AssertionError" message="Locality not found at sheet 0, row 1 expected object to not be null">
-<![CDATA[java.lang.AssertionError: Locality not found at sheet 0, row 1 expected object to not be null
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.assertNotNull(Assert.java:1496)
-	at com.stepdefinitiontestng.Profile.user_enters_city_name_from_sheet_and_row(Profile.java:107)
-	at ✽.user enters city name from sheet 0 and row 1(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:20)
-]]>
-</failure>
+<testcase classname="Validate HomePage launch" name="User cityPage - #1.2" time="21.529">
 <system-out><![CDATA[
 Given user is on cityPage...................................................passed
-And user enters city name from sheet 0 and row 1............................failed
-When user clicks on search button...........................................skipped
-Then it should display list of properties available.........................skipped
+And user enters city name from sheet 0 and row 1............................passed
+When user clicks on search button...........................................passed
+Then it should display list of properties available.........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Validate HomePage launch" name="User navigates to Ready-to-Move flats and clicks Post Property" time="42.767">
-<failure type="java.lang.AssertionError" message="Failed to click on Ready to Move option">
-<![CDATA[java.lang.AssertionError: Failed to click on Ready to Move option
-	at com.stepdefinitiontestng.Profile.the_user_clicks_on_the_ready_to_move(Profile.java:144)
-	at ✽.the user clicks on the Ready to Move(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:34)
-]]>
-</failure>
+<testcase classname="Validate HomePage launch" name="User navigates to Ready-to-Move flats and clicks Post Property" time="47.089">
 <system-out><![CDATA[
 Given the user is on  the homepage..........................................passed
 When the user clicks on the Buy option......................................passed
-And the user clicks on the Ready to Move....................................failed
-Then the user should be navigated to Ready to move flats page...............skipped
-And the user clicks on zero brokerage using.................................skipped
-Then the Post Property page should be displayed successfully................skipped
+And the user clicks on the Ready to Move....................................passed
+Then the user should be navigated to Ready to move flats page...............passed
+And the user clicks on zero brokerage using.................................passed
+Then the Post Property page should be displayed successfully................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Validate HomePage launch" name="User navigates to the Rates and Trends - #1.1" time="18.706">
+<testcase classname="Validate HomePage launch" name="User navigates to the Rates and Trends - #1.1" time="22.892">
 <system-out><![CDATA[
 Given user is on the MagicBricks Home Page..................................passed
 And the user clicks on the Rates and Trend..................................passed
@@ -82,48 +51,13 @@ When user clicks on show Trends.............................................pass
 Then it should display the updated properties...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Validate HomePage launch" name="User navigates to the Rates and Trends - #1.2" time="9.089">
-<failure type="org.openqa.selenium.NoSuchWindowException" message="no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=142.0.7444.162)
-Build info: version: '4.34.0', revision: '707dcb4246*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b9d8d73992a1e20914d36bd0a0a85f61, maximizeCurrentWindow {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.162, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61063}, goog:processID: 7768, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61063/devtoo..., se:cdpVersion: 142.0.7444.162, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: b9d8d73992a1e20914d36bd0a0a85f61">
-<![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=142.0.7444.162)
-Build info: version: '4.34.0', revision: '707dcb4246*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b9d8d73992a1e20914d36bd0a0a85f61, maximizeCurrentWindow {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.162, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61063}, goog:processID: 7768, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61063/devtoo..., se:cdpVersion: 142.0.7444.162, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: b9d8d73992a1e20914d36bd0a0a85f61
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:617)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:621)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:1047)
-	at com.setup.BaseSteps.launchBrowser(BaseSteps.java:55)
-	at com.stepdefinitiontestng.Hooks.beforeScenario(Hooks.java:47)
-]]>
-</failure>
+<testcase classname="Validate HomePage launch" name="User navigates to the Rates and Trends - #1.2" time="22.822">
 <system-out><![CDATA[
-Given user is on the MagicBricks Home Page..................................skipped
-And the user clicks on the Rates and Trend..................................skipped
-And user enters project name from sheet 1 and row 1.........................skipped
-When user clicks on show Trends.............................................skipped
-Then it should display the updated properties...............................skipped
+Given user is on the MagicBricks Home Page..................................passed
+And the user clicks on the Rates and Trend..................................passed
+And user enters project name from sheet 1 and row 1.........................passed
+When user clicks on show Trends.............................................passed
+Then it should display the updated properties...............................passed
 ]]></system-out>
 </testcase>
 </testsuite>

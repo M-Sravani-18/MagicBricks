@@ -169,7 +169,8 @@ public void the_post_property_page_should_be_displayed_successfully() {
 	driver.quit();
 }
 	
-	
+
+		
 	
 //======================================fifth Scenario========================================//
 
@@ -189,18 +190,29 @@ public void the_user_clicks_on_the_rates_and_trend() {
    
 }
 @And("user enters project name from sheet {int} and row {int}")
-public void user_enters_project_name_from_sheet_and_row(Integer int1, Integer int2) throws InterruptedException {
-	String search = ExcelReader.getCellDatas(ExcelReader.pathfiles, int1, int2, ExcelReader.SEARCH_COLUMN_INDEX);
-    System.out.println("Hospital from Excel: " + search);
-
-
-    WebElement searchInput = driver.findElement(By.id("keyword"));
-    searchInput.click();
-    searchInput.sendKeys(search);
-    searchInput.sendKeys(Keys.ARROW_DOWN);
-    searchInput.sendKeys(Keys.ENTER);
-   
+public void user_enters_project_name_from_sheet_and_row(Integer int1, Integer int2) throws Exception {
+//	String search = ExcelReader.getCellDatas(ExcelReader.pathfiles, int1, int2, ExcelReader.SEARCH_COLUMN_INDEX);
+//    System.out.println("Hospital from Excel: " + search);
+//
+//
+//    WebElement searchInput = driver.findElement(By.id("keyword"));
+//    searchInput.click();
+//    searchInput.sendKeys(search);
+//    searchInput.sendKeys(Keys.ARROW_DOWN);
+//    searchInput.sendKeys(Keys.ENTER);
+	
+	String sheetName = "Sheet2"; // Map sheetIndex if needed
+    String currentRowData = ExcelReader.readData(int1, int2); // Use rowIndex dynamically
+    String location = currentRowData;
+    System.out.println(location);
+    
+    userpage.clickAndEnterAirportLocation1(location);
+    
+    boolean dropdownStatus = userpage.selectFirstDropdownOption();
+    Assert.assertTrue(dropdownStatus, "Failed to select airport from suggestions.");
 }
+   
+
 @When("user clicks on show Trends")
 public void user_clicks_on_show_trends() {
 	userpage.showtrends();
@@ -209,7 +221,10 @@ public void user_clicks_on_show_trends() {
 
 @Then("it should display the updated properties")
 public void it_should_display_the_updated_properties() {
-   
+	boolean isVisible = userpage.isHeadingVisible();
+    Assert.assertTrue(isVisible, "Heading is  not visible");
+    driver.quit();
+	
 }
 }
 
