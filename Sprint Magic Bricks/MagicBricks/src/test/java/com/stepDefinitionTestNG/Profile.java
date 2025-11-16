@@ -151,52 +151,32 @@ HomePage homepage=new HomePage();
 
 	
 	
+	//==========================================================  Scenario4-SearchPage  ==========================================================================
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	//==============================================================================================
-	//===============================================================================================
-	//================================================================================================
 	
 	
 	@Given("the user on the Homepage")
 	public void the_user_on_the_homepage() {
+	   System.out.println("User is on the homepage");
+	}
+		
+	@When("enter the city in the search box {int} {int}")
+	public void enter_the_city_in_the_search_box(Integer row, Integer sheet) throws InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
+		  String excelPathSO = prop.getProperty("excelpath").trim();
+			
+			// Fetch locality from specific sheet and row
+			String nameOfCity = ExcelReader.getLocalityByRow(excelPathSO, sheet, row);
+			Assert.assertNotNull(nameOfCity, "Locality not found at sheet " + sheet + ", row " + row);
+			System.out.println("City from Excel:" + nameOfCity);
+			
+			searchpage.enteringCityname(nameOfCity);
+			
+			
+//			driver.quit();
+		
 	}
-
-	@Given("enter budget in the budget box {int} {int}")
-	public void enter_budget_in_the_budget_box(Integer row, Integer sheet) throws InterruptedException {
-		
-String excelPathSO = prop.getProperty("excelpath").trim();
-		
-		// Fetch locality from specific sheet and row
-		String nameOfCity = ExcelReader.getLocalityByRow(excelPathSO, sheet, row);
-		Assert.assertNotNull(nameOfCity, "Locality not found at sheet " + sheet + ", row " + row);
-		System.out.println("City from Excel:" + nameOfCity);
-		//Assert.assertNotNull(userpage, "UserPage object is not initialized");
-		
-		searchpage.enteringCityname(nameOfCity);
-		//searchpage.enteringCityname(nameOfCity);
-		
-		searchpage.clickSearch();
-		driver.quit();
-	}
-	
-	
-	
- 
-
-	
 	
 
 //===============================================================================================================
@@ -245,15 +225,13 @@ String excelPathSO = prop.getProperty("excelpath").trim();
 @Given("user is on the home page")
 public void user_is_on_the_home_page() {
 	
-    // Write code here that turns the phrase above into concrete actions
-    //throw new io.cucumber.java.PendingException();
+  System.out.println("User is on the Home Page");
 }
 
 @Given("the user clicks on plot")
 public void the_user_clicks_on_plot() {
 	searchpage.clickPlot();
-    // Write code here that turns the phrase above into concrete actions
-    //throw new io.cucumber.java.PendingException();
+   
 }
 
 @Given("user clicks Budget")
@@ -261,8 +239,7 @@ public void user_clicks_budget() {
 	 searchpage.clickBudget();
 	    System.out.println("Clicked on budget.");
 
-    // Write code here that turns the phrase above into concrete actions
-    //throw new io.cucumber.java.PendingException();
+    
 }
 
 @Given("the user reads price from the excel sheet {int} {int}")
@@ -273,28 +250,20 @@ public void the_user_reads_price_from_the_excel_sheet(Integer sheetIndex, Intege
     System.out.println("Price from Excel: " + price);
     searchpage.enterBudget(price);
 
-    // Write code here that turns the phrase above into concrete actions
-    //throw new io.cucumber.java.PendingException();
+ 
 }
 
 @Given("click on search")
 public void click_on_search() {
-//	searchpage.clickSearch();
-//    System.out.println("Clicked on search.");
+	searchpage.clickSearch();
+    System.out.println("Clicked on search.");
 
-    // Write code here that turns the phrase above into concrete actions
-    //throw new io.cucumber.java.PendingException();
+   
 }
 
 @Then("result is displayed")
 public void result_is_displayed() {
-//	boolean resultVisible = searchpage.isResultDisplayed();
-//    Assert.assertTrue(resultVisible, "Result is not displayed.");
-//    System.out.println("Result is displayed.");
-//
-//    // Write code here that turns the phrase above into concrete actions
-//   // throw new io.cucumber.java.PendingException();
-//}
+
 
 	
 }
