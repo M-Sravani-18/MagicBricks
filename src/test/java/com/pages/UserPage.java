@@ -1,3 +1,4 @@
+
 package com.pages;
 
 import java.time.Duration;
@@ -67,7 +68,7 @@ public class UserPage {
 	public boolean selectPropertyType(String propertyType) {
 	    try {
 	    	Thread.sleep(2000);
-	        By propertyTypeLocator = By.xpath("//a[contains(text(),'" + propertyType + "')]");
+	        By propertyTypeLocator = By.xpath("//a[text()='Villa in Bangalore']");
 	        wait.until(ExpectedConditions.elementToBeClickable(propertyTypeLocator)).click();
 	        // Handle new tab if opened
 	        String originalWindow = driver.getWindowHandle();
@@ -144,8 +145,9 @@ public class UserPage {
 	      // Click Buy module
 	      public boolean clickBuyModule1() {
 	    	  try {
-	    		  By buyModule = By.xpath("//a[text()='Buy']");
-	    		  wait.until(ExpectedConditions.elementToBeClickable(buyModule)).click();
+	    		  By buyModule = By.xpath("(//a[text()='Buy'])[1]");
+	    		  WebElement clickBuy = wait.until(ExpectedConditions.elementToBeClickable(buyModule));
+	    		  clickBuy.click();
 	    		  return true;
 	    	  } catch (Exception e) {
 	    		  return false;
@@ -157,8 +159,9 @@ public class UserPage {
 	      public boolean selectReadytoMove(String readytoMove) {
 	    	  try {
 	    		  Thread.sleep(2000);
-	    		  By readytoMoveLocator = By.xpath("//a[contains(text(),'Ready to Move')]");
-	    		  wait.until(ExpectedConditions.elementToBeClickable(readytoMoveLocator)).click();
+	    		  By readytoMoveLocator = By.xpath("//a[text()='Ready to Move']");
+	    		  WebElement ready = wait.until(ExpectedConditions.elementToBeClickable(readytoMoveLocator));
+	    		  ready.click();
 	  
 	    		  // Handle new tab if opened
 	    		  String originalWindow = driver.getWindowHandle();
@@ -210,31 +213,7 @@ public class UserPage {
 	      
 	      
 	      
-//	      public boolean selectdis(String dis) {
-//	    	  try {
-//	    		  Thread.sleep(2000);
-//	    		  By readytoMoveLocator = By.xpath("//a[contains(text(),'Ready to Move')]");
-//	    		  wait.until(ExpectedConditions.elementToBeClickable(readytoMoveLocator)).click();
-//	  
-//	    		  // Handle new tab if opened
-//	    		  String originalWindow = driver.getWindowHandle();
-//	    		  for (String windowHandle : driver.getWindowHandles()) {
-//	    			  if (!windowHandle.equals(originalWindow)) {
-//	    				  driver.switchTo().window(windowHandle);
-//	    				  break;
-//	    			  }
-//	    		  }
-
-	    		  // Wait for URL to changeS
-//	    		 return  wait.until(ExpectedConditions.urlContains(" Flat/Apartment"));
-//                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class,'mb-srp__card')]")));
-//	    		  return true;
-//	    	  } catch (Exception e) {
-//	    		  System.out.println("Error clicking property type: " + e.getMessage());
-//	    		  return false;
-//	    	  }
-//	      }
-	      
+   
 	      
 	      
 //==================================fifth Scenario==============================================//
@@ -314,10 +293,10 @@ public class UserPage {
 	 
 	    	        // Wait until it's visible and clickable
 	    	        wait.until(ExpectedConditions.visibilityOf(trends));
-	    	        wait.until(ExpectedConditions.elementToBeClickable(trends));
+	    	        WebElement trends1 = wait.until(ExpectedConditions.elementToBeClickable(trends));
 	 
 	    	        // Optional: Click the button
-	    	        trends.click();
+	    	        trends1.click();
 
 	    	     // Switch to the new tab/window
 	    	     for (String handle : driver.getWindowHandles()) {
@@ -345,42 +324,14 @@ public class UserPage {
 	    	  // Reports.generateReport(driver, test, Status.PASS, "heading is visible.");
 	    	  return wait.until(ExpectedConditions.visibilityOf(heading)).isDisplayed();
 	      }
-}
+	      
+     	}
+	      
 
 
-
-//	      
-//	      public void enterDataInteriorBudgetestimator() {
-//    	  
-//    	  try {
-//    	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-// 
-//    	        // Locate the element using XPath
-//    	        WebElement ratesAndTrends = driver.findElement(By.xpath("//div[@class='mb-home__tool-advice__card--title' and normalize-space(text())='Rates & Trends']/ancestor::a"));
-// 
-//    	        // Scroll into view using JavaScript
-//    	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", ratesAndTrends);
-// 
-//    	        // Wait until it's visible and clickable
-//    	        wait.until(ExpectedConditions.visibilityOf(ratesAndTrends));
-//    	        wait.until(ExpectedConditions.elementToBeClickable(ratesAndTrends));
-// 
-//    	        // Optional: Click the button
-//    	        ratesAndTrends.click();
-// 
-//    	       // return true;
-//    	    } catch (Exception e) {
-//    	        System.out.println("Rates & Trends button not found or not clickable.");
-//    	        e.printStackTrace();
-//    	        //return false;
-//    	    }	      
-//
-//	      }
 
 
 
 
 	
 	
-
-

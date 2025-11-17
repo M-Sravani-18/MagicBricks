@@ -49,6 +49,17 @@ Examples:
     | sheet | row |
     | 1     | 0   |
     | 1     | 1   |
+    
+    
+
+@NegativeScenario
+Scenario: User enters the invalid location in the search box
+Given the user is on the Buy module page
+When the user clicks on search box
+And the user enters an invalid location
+And the user click on search button
+Then an error message should be displayed from the properties
+
 
 
     

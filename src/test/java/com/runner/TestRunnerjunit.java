@@ -6,17 +6,16 @@ import io.cucumber.junit.CucumberOptions;
  
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/com/Features",
-        glue = {
-                "com.stepDefinitionJunit",
-                "com.setup",
-                "com.parameters",
-                "com.pages"
-        },
-        plugin = {
-                "pretty",
-                "html:target/JUnit-Cucumber-Report.html"},
-              tags = "@secondScenario"
+	    features = ".\\src\\test\\resources\\com\\Features\\buy.feature", // Path to feature files
+	    
+	    
+	    glue = {"com.stepdefinitiontestng"}, // Step definition package  
+	    		 // tags= "@fourthscenario",
+	    plugin = {"pretty:reports/prettyReport.html",
+	    		"html:target/cucumber-reports.html",
+	    		"pretty","html:reports/HTMLReports.html",
+				"json:reports/json-report.json",
+				"junit:reports/junit_report.xml"}
         
 )
 public class TestRunnerjunit {

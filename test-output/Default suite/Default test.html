@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>7/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/4/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Nov 15 18:22:13 IST 2025</td>
+<td>Started on:</td><td>Mon Nov 17 21:08:50 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>161 seconds (161983 ms)</td>
+<tr><td>Total time:</td><td>48 seconds (48434 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,279 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.runner.TestRunnerParallel.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerParallel<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User navigates to the Rates and Trends", "Validate HomePage launch"</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (277, -2171)
+  (Session info: chrome=142.0.7444.163)
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [592da547222ce69508b78f1f34832d31, clickElement {id=f.77F3C4D551387385D80B25FF53ED1CEF.d.1853175246C8F455F5C44160EA03F4FD.e.268}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50855}, goog:processID: 33796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50855/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (592da547222ce69508b78f1f34832d31)] -&gt; id: keyword]
+Session ID: 592da547222ce69508b78f1f34832d31
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.click(Unknown Source)
+	at com.pages.UserPage.clickAndEnterAirportLocation1(UserPage.java:269)
+	at com.stepdefinitiontestng.Profile.user_enters_project_name_from_sheet_and_row(Profile.java:182)
+	at ✽.user enters project name from sheet 1 and row 0(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:44)
+</pre></div><a href='#' onClick='toggleBox("stack-trace594656005", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace594656005'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (277, -2171)
+  (Session info: chrome=142.0.7444.163)
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [592da547222ce69508b78f1f34832d31, clickElement {id=f.77F3C4D551387385D80B25FF53ED1CEF.d.1853175246C8F455F5C44160EA03F4FD.e.268}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50855}, goog:processID: 33796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50855/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (592da547222ce69508b78f1f34832d31)] -&gt; id: keyword]
+Session ID: 592da547222ce69508b78f1f34832d31
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.click(Unknown Source)
+	at com.pages.UserPage.clickAndEnterAirportLocation1(UserPage.java:269)
+	at com.stepdefinitiontestng.Profile.user_enters_project_name_from_sheet_and_row(Profile.java:182)
+	at ✽.user enters project name from sheet 1 and row 0(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:44)
+</pre></div></td>
+<td>42</td>
+<td>com.runner.TestRunnerParallel@1649b0e6</td></tr>
+<tr>
+<td title='com.runner.TestRunnerParallel.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerParallel<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User navigates to the Rates and Trends", "Validate HomePage launch"</td>
+<td><div><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [592da547222ce69508b78f1f34832d31, isElementDisplayed [id]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50855}, goog:processID: 33796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50855/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (592da547222ce69508b78f1f34832d31)] -&gt; id: keyword]
+Session ID: 592da547222ce69508b78f1f34832d31
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:571)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:282)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at com.pages.UserPage.clickAndEnterAirportLocation1(UserPage.java:268)
+	at com.stepdefinitiontestng.Profile.user_enters_project_name_from_sheet_and_row(Profile.java:182)
+	at ✽.user enters project name from sheet 1 and row 1(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:44)
+Caused by: java.io.UncheckedIOException: java.io.IOException: Task jdk.internal.net.http.common.SequentialScheduler$SchedulableTask@717cd2db rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 5, active threads = 5, queued tasks = 0, completed tasks = 376]
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:500)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.lambda$executeAsync$2(JdkHttpClient.java:387)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: java.io.IOException: Task jdk.internal.net.http.common.SequentialScheduler$SchedulableTask@717cd2db rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 5, active threads = 5, queued tasks = 0, completed tasks = 376]
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:973)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:459)
+	... 8 more
+Caused by: java.util.concurrent.RejectedExecutionException: Task jdk.internal.net.http.common.SequentialScheduler$SchedulableTask@717cd2db rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 5, active threads = 5, queued tasks = 0, completed tasks = 376]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2082)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1377)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.ensureExecutedAsync(HttpClientImpl.java:184)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:176)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:282)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:251)
+	at java.net.http/jdk.internal.net.http.Http1AsyncReceiver.onReadError(Http1AsyncReceiver.java:516)
+	at java.net.http/jdk.internal.net.http.Http1AsyncReceiver$Http1TubeSubscriber.onComplete(Http1AsyncReceiver.java:601)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadSubscription.signalCompletion(SocketTube.java:648)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.read(SocketTube.java:853)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowTask.run(SocketTube.java:181)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:207)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:280)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:233)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.signalReadable(SocketTube.java:782)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent.signalEvent(SocketTube.java:965)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowEvent.handle(SocketTube.java:253)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.handleEvent(HttpClientImpl.java:1478)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.lambda$run$3(HttpClientImpl.java:1423)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1423)
+</pre></div><a href='#' onClick='toggleBox("stack-trace496004090", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace496004090'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [592da547222ce69508b78f1f34832d31, isElementDisplayed [id]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50855}, goog:processID: 33796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50855/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (592da547222ce69508b78f1f34832d31)] -&gt; id: keyword]
+Session ID: 592da547222ce69508b78f1f34832d31
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:571)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:282)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at com.pages.UserPage.clickAndEnterAirportLocation1(UserPage.java:268)
+	at com.stepdefinitiontestng.Profile.user_enters_project_name_from_sheet_and_row(Profile.java:182)
+	at ✽.user enters project name from sheet 1 and row 1(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:44)
+Caused by: java.io.UncheckedIOException: java.io.IOException: Task jdk.internal.net.http.common.SequentialScheduler$SchedulableTask@717cd2db rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 5, active threads = 5, queued tasks = 0, completed tasks = 376]
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:500)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.lambda$executeAsync$2(JdkHttpClient.java:387)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: java.io.IOException: Task jdk.internal.net.http.common.SequentialScheduler$SchedulableTask@717cd2db rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 5, active threads = 5, queued tasks = 0, completed tasks = 376]
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:973)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:459)
+	... 8 more
+Caused by: java.util.concurrent.RejectedExecutionException: Task jdk.internal.net.http.common.SequentialScheduler$SchedulableTask@717cd2db rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 5, active threads = 5, queued tasks = 0, completed tasks = 376]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2082)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1377)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.ensureExecutedAsync(HttpClientImpl.java:184)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:176)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:282)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:251)
+	at java.net.http/jdk.internal.net.http.Http1AsyncReceiver.onReadError(Http1AsyncReceiver.java:516)
+	at java.net.http/jdk.internal.net.http.Http1AsyncReceiver$Http1TubeSubscriber.onComplete(Http1AsyncReceiver.java:601)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadSubscription.signalCompletion(SocketTube.java:648)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.read(SocketTube.java:853)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowTask.run(SocketTube.java:181)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:207)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:280)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:233)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.signalReadable(SocketTube.java:782)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent.signalEvent(SocketTube.java:965)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowEvent.handle(SocketTube.java:253)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.handleEvent(HttpClientImpl.java:1478)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.lambda$run$3(HttpClientImpl.java:1423)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1423)
+</pre></div></td>
+<td>46</td>
+<td>com.runner.TestRunnerParallel@1649b0e6</td></tr>
+<tr>
+<td title='com.runner.TestRunnerParallel.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerParallel<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Click Buy and navigate to Villas in Bangalore", "Validate HomePage launch"</td>
+<td><div><pre>java.lang.AssertionError: Failed to click Villa in Bangalore expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepdefinitiontestng.Profile.i_click_on_villa_in_bangalore(Profile.java:70)
+	at ✽.I click on Villa in Bangalore(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:13)
+</pre></div><a href='#' onClick='toggleBox("stack-trace261613321", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace261613321'><pre>java.lang.AssertionError: Failed to click Villa in Bangalore expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepdefinitiontestng.Profile.i_click_on_villa_in_bangalore(Profile.java:70)
+	at ✽.I click on Villa in Bangalore(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:13)
+</pre></div></td>
+<td>46</td>
+<td>com.runner.TestRunnerParallel@1649b0e6</td></tr>
+<tr>
+<td title='com.runner.TestRunnerParallel.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerParallel<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User navigates to Ready-to-Move flats and clicks Post Property", "Validate HomePage launch"</td>
+<td><div><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [592da547222ce69508b78f1f34832d31, getCurrentUrl []]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50855}, goog:processID: 33796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50855/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 592da547222ce69508b78f1f34832d31
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:571)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:617)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:621)
+	at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:324)
+	at com.pages.UserPage.verifyURL(UserPage.java:210)
+	at com.stepdefinitiontestng.Profile.the_user_should_be_navigated_to_ready_to_move_flats_page(Profile.java:138)
+	at ✽.the user should be navigated to Ready to move flats page(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:35)
+Caused by: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@75c0bd2[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@5f76badb[Wrapped task = org.openqa.selenium.remote.http.jdk.JdkHttpClient$$Lambda/0x0000023d81403578@6b5b63ca]] rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 380]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2082)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1377)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:124)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.executeAsync(JdkHttpClient.java:384)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:413)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:212)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	... 6 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1115196327", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1115196327'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [592da547222ce69508b78f1f34832d31, getCurrentUrl []]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.162 (c076baf266c..., userDataDir: C:\Users\madhams\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50855}, goog:processID: 33796, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50855/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 592da547222ce69508b78f1f34832d31
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:571)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:617)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:621)
+	at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:324)
+	at com.pages.UserPage.verifyURL(UserPage.java:210)
+	at com.stepdefinitiontestng.Profile.the_user_should_be_navigated_to_ready_to_move_flats_page(Profile.java:138)
+	at ✽.the user should be navigated to Ready to move flats page(file:///C:/Users/madhams/OneDrive%20-%20Capgemini/Desktop/Training/SprintMagicBricks/MagicBricks/./src/test/resources/com/Features/buy.feature:35)
+Caused by: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@75c0bd2[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@5f76badb[Wrapped task = org.openqa.selenium.remote.http.jdk.JdkHttpClient$$Lambda/0x0000023d81403578@6b5b63ca]] rejected from java.util.concurrent.ThreadPoolExecutor@12b52944[Shutting down, pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 380]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2082)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1377)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:124)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.executeAsync(JdkHttpClient.java:384)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:413)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:212)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	... 6 more
+</pre></div></td>
+<td>46</td>
+<td>com.runner.TestRunnerParallel@1649b0e6</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,40 +349,20 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User navigates to the Rates and Trends", "Validate HomePage launch"</td>
+<td title='com.runner.TestRunnerParallel.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerParallel<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User cityPage", "Validate HomePage launch"</td>
 <td></td>
-<td>22</td>
-<td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
+<td>46</td>
+<td>com.runner.TestRunnerParallel@1649b0e6</td></tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User cityPage", "Validate HomePage launch"</td>
+<td title='com.runner.TestRunnerParallel.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerParallel<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify that the HomePage is launched successfully", "Validate HomePage launch"</td>
 <td></td>
-<td>21</td>
-<td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
+<td>41</td>
+<td>com.runner.TestRunnerParallel@1649b0e6</td></tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User navigates to the Rates and Trends", "Validate HomePage launch"</td>
+<td title='com.runner.TestRunnerParallel.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerParallel<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User cityPage", "Validate HomePage launch"</td>
 <td></td>
-<td>22</td>
-<td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User cityPage", "Validate HomePage launch"</td>
-<td></td>
-<td>23</td>
-<td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User navigates to Ready-to-Move flats and clicks Post Property", "Validate HomePage launch"</td>
-<td></td>
-<td>47</td>
-<td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify that the HomePage is launched successfully", "Validate HomePage launch"</td>
-<td></td>
-<td>9</td>
-<td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Click Buy and navigate to Villas in Bangalore", "Validate HomePage launch"</td>
-<td></td>
-<td>12</td>
-<td>com.runner.TestRunnerTestNG@1649b0e6</td></tr>
+<td>45</td>
+<td>com.runner.TestRunnerParallel@1649b0e6</td></tr>
 </table><p>
 </body>
 </html>
