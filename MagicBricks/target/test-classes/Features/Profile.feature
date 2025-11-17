@@ -1,44 +1,65 @@
-Feature: validate MagicBricks website launch functionality
-#@swc
-Scenario:
-Verify MagicBricks Homepage lauch successfully
-Given User launches the application with configured url
-When User waits until the homepage is fully loaded
-Then Homepage should be displayed successfully
+Feature: Home page load verification
+@Scenario1
+Scenario: Verify that homepage loads successfully
+Given the user lauches the browser
+When the user navigates to the application URL 
+Then the homepage should load successfully
 And the application title should be displayed
+And the plot is displayed
+And the plot is clickable
+Then user click on the Plots in Gated Community
 
-      
- #@sec1
- Scenario: To navigate to Interior Designers in Hyderabad
-  Given user on the homepage
-  When user hover on Home Interiors dropdown 
-  And user click Home interior Design services
-  Then user nagivate to Home interior Design services page
+@Scenario2
+Scenario: Navigate to East Facing Plot
+Given user on the Homepage
+Then click on plot
+Then It displays presenting plots and lands in Bangalore
+When user clicks on East Facing Plots Explore button
+Then user goes to the East Facing Plots listing page
+And select on the New projects
+Then New projects page is loaded
 
-  
-  
-  
-#@sce2
-Scenario: To navigate to Interior Designers in bangalore
-  Given user is on the homepage
-  When user hover on the Home Interiors dropdown 
-  And user click Home interior Design in banglore
-  Then user nagivate to Home interior Design in banglore page
-  #And user click on Get Estimate Now
- #Then  navigate toSelect your BHK type 
- 
- Scenario Outline: Verify filter by using excel
- Given user lands on the homepage
- When user is hover on the Home Interiors dropdown
- And user click on  Home interior Design in banglore
- And user click on dropdown 
- And select city from <sheet> and <row>
- Then page should loaded as option selected
- 
- Examples:
-| sheet | row|
-| 0     | 1   |
-| 0     | 2  |
+@Scenario3
+Scenario: Navigate to See Plots from Investment Corridor
+Given the user is on the Homepage of the magicBricks
+When the user clicks on the plot option
+And click on the see plots1
+Then navigate to the plots page and click click on the seeplots2
 
- 
- 
+
+@Scenario4
+Scenario: Select city from the Excel Sheet
+Given the user on the Homepage
+When the user clicks on the plot option
+Then enter the city in the search box <row> <sheet>
+Examples:
+  | row | sheet |
+  | 1   | 0     |
+  | 2   | 0     |
+  
+
+@Scenario5
+Scenario: Validate budget functionality in plot
+Given user is on the home page
+And the user clicks on plot
+And user clicks Budget 
+And the user reads price from the excel sheet <sheet> <row>
+Then result is displayed
+
+Examples:
+  | row | sheet |
+  | 1   | 0     |
+  | 2   | 0     |
+
+@Scenario6
+Scenario: Validating with invalid city name
+Given user is on the home page
+And the user clicks on plot
+And enter the invalid city name
+Then error message is displayed
+
+
+
+
+
+        

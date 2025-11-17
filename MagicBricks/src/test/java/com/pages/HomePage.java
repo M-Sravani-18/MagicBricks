@@ -1,77 +1,123 @@
 package com.pages;
 
 import java.time.Duration;
+import java.util.List;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
+import com.pages.BasePage.BrowserUtils;
 import com.setup.BaseSteps;
-import com.setup.Reports;
 
-public class HomePage extends BaseSteps {
-	private static WebDriverWait wait;
-    private static ExtentTest test;
- 
+public class HomePage extends BaseSteps{
+	
+	
+	@FindBy(id="tabPLOT")
+	private WebElement plotclick;
+		
+	
+	@FindBy(xpath="//a[.//img[@alt='East facing Plots']]")                       
+	WebElement clickOnEastFacingPlots;
+	
+	
+	
+	 public HomePage() {
+	        PageFactory.initElements(driver, this);
+	    }
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
 
-    @FindBy( id ="rentheading")
-    private WebElement rentDropdown;
+	public void clickPlot() {
+		 Assert.assertTrue(plotclick.isDisplayed(), " Plot element is not displayed.");
+		    Assert.assertTrue(plotclick.isEnabled(), " Plot element is not clickable.");
+		    plotclick.click();
+		    System.out.println(" Plot element clicked successfully.");
 
-    @FindBy(xpath = "//a[text()='PG in Bangalore']")
-    private WebElement pgInBangaloreOption;
-    
-    @FindBy(xpath="//div[text()='What kind of PG accomodation are you looking for?']")
-    private WebElement text;
-    
-   
+		
+		
+	}
+	
+	public void displayPresentingPlotsandLandInBangalore() {	
 
-   
-    public void hoverOnRentDropdown() {
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(rentDropdown).perform();
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(rentDropdown));
-        new Actions(driver).moveToElement(rentDropdown).perform();
+		    System.out.println(" Heading is visible after clicking plot.");
 
-    }
+	}
+	
+	public void clickEastFacingPlots() {
+		
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		    wait.until(ExpectedConditions.visibilityOf(clickOnEastFacingPlots));
+		    Assert.assertTrue(clickOnEastFacingPlots.isDisplayed(), " East-facing plot option is not visible.");
+		    Assert.assertTrue(clickOnEastFacingPlots.isEnabled(), " East-facing plot option is not clickable.");
+		    clickOnEastFacingPlots.click();
+		    System.out.println(" East-facing plot clicked successfully.");
+	}
+	
 
-    public void clickPgInBangalore() throws InterruptedException {
-      	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-      	Thread.sleep(2000);;
-    	wait.until(ExpectedConditions.visibilityOf(pgInBangaloreOption));
-    	//wait.until(ExpectedConditions.elementToBeClickable(pgInBangaloreOption)).click();
-    	
-    	//Thread.sleep(2000);
-        pgInBangaloreOption.click();
+	public void clickOnNewProjects() {	
+		
+		try {
+	        BrowserUtils.switchToNewTab(driver);
 
-        //pgInBangaloreOption.click();
-        }
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
 
-    public static boolean getPageTitle() {
-    	
-            try {
-                String currentUrl = driver.getCurrentUrl();
-                System.out.println("Current Page URL: " + currentUrl);
-                Reports.generateReport(driver, test, Status.PASS, "PG  Page is verified");
-                
-                // Just check if URL contains 'seat-availability'
-                return currentUrl.contains("pg-in-bangalore-pppfr");
-            } catch (Exception e) {
-                System.out.println("Error verifying PG page: " + e.getMessage());
-                Reports.generateReport(driver, test, Status.FAIL, "PG Page is not verified");
-                return false;
-            }
-     
-    }
-}
+	        // Wait for the new page to load and the element to be present
+	        By seePlotsLocator = By.xpath("(//a[contains(@class,'mb-srp__plcorr__seeplts') and normalize-space(text())='See Plots'])[1]");
+	        wait.until(ExpectedConditions.presenceOfElementLocated(seePlotsLocator));
+
+	        // Re-locate the element fresh from the DOM
+	        WebElement seePlots = driver.findElement(seePlotsLocator);
+
+	        // Scroll and click safely
+	        js.executeScript("arguments[0].scrollIntoView({block:'center'});", seePlots);
+	        wait.until(ExpectedConditions.elementToBeClickable(seePlots));
+	        seePlots.click();
+	        
+	        
+
+	        System.out.println(" Clicked on 'See Plots' successfully!");
+
+	    } catch (StaleElementReferenceException stale) {
+	        System.out.println(" Stale element caught. Retrying...");
+
+
+	        
+	        try {
+	            By seePlotsLocator = By.xpath("(//a[contains(@class,'mb-srp__plcorr__seeplts') and normalize-space(text())='See Plots'])[1]");
+	            WebElement seePlots = new WebDriverWait(driver, Duration.ofSeconds(5))
+	                    .until(ExpectedConditions.elementToBeClickable(seePlotsLocator));
+
+	            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", seePlots);
+	            seePlots.click();
+	            System.out.println(" Retried and clicked 'See Plots' successfully!");
+	        } catch (Exception retryEx) {
+	            System.out.println(" Retry failed: " + retryEx.getMessage());
+	            Assert.fail("Failed to click 'See Plots' after retry.");
+	        }
+
+	    } catch (Exception e) {
+	        System.out.println(" Error while clicking 'See Plots': " + e.getMessage());
+	        Assert.fail("Unexpected error while clicking 'See Plots'");
+	    }
+
+		
+		
+		
+		
+		
+		
+
+	}
+			 
+}		 
+
+	
+
+

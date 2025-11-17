@@ -1,73 +1,60 @@
 package com.stepDefinitionTestNG;
- 
- 
+
 import com.aventstack.extentreports.ExtentReports;
-
 import com.aventstack.extentreports.ExtentTest;
-
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
+import com.pages.HomePage;
 import com.setup.BaseSteps;
  
 import io.cucumber.java.After;
-
 import io.cucumber.java.AfterAll;
-
 import io.cucumber.java.Before;
-
 import io.cucumber.java.BeforeAll;
-
 import io.cucumber.java.Scenario;
- 
-public class Hooks extends BaseSteps {
- 
-	public static ExtentSparkReporter spark; // classes of extend reports, what should be color of reports
 
-    public static ExtentReports extReports; //what to track on report(tester name, date etc..,)
+public class Hooks extends BaseSteps{
+	
+	
+	public static ExtentSparkReporter spark;
+    public static ExtentReports extReports;
+    public static ExtentTest test;
 
-    public static ExtentTest test; // it will track the test cases
-
-    @BeforeAll // run code before feature file starts
-
+    @BeforeAll
     public static void beforeAll() {
-
-        spark = new ExtentSparkReporter(".\\target\\ExtentReport.html"); // for extends report
-
+        spark = new ExtentSparkReporter(".\\target\\ExtentReport.html");
         extReports = new ExtentReports();
-
         extReports.attachReporter(spark);
-
     }
 
     @AfterAll
-
-    public static void afterAll() { // after file rends this will run
-
-        extReports.flush(); // to generate extentreport like commit method
-
+    public static void afterAll() {
+        extReports.flush(); // Only flush once
     }
 
-    @Before // before every scenario
-
+    @Before
     public void beforeScenario(Scenario scenario) {
-
-        test = extReports.createTest(scenario.getName()); // on the test, track the name of scenario
-
-       launchBrowser(); // fresh browser will launch
-
+        test = extReports.createTest(scenario.getName());
+        launchBrowser(); // Make sure this sets driver
     }
 
-
-    @After // after every scenario
-
+    @After
     public void afterScenario() {
-
         sleep(4000);
-
         driver.quit();
+        if (driver != null) {
+			driver.quit(); 
+		}
+		extReports.flush();
+        
 
     }
 
-}
 
- 
+	
+}
+	
+	
+	
+	
+	
+

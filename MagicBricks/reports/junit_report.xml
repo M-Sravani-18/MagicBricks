@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="156.683" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-11-17T15:06:33.109950500Z">
+<testcase classname="Home page load verification" name="Verify that homepage loads successfully" time="14.64">
+<system-out><![CDATA[
+Given the user lauches the browser..........................................passed
+When the user navigates to the application URL..............................passed
+Then the homepage should load successfully..................................passed
+And the application title should be displayed...............................passed
+And the plot is displayed...................................................passed
+And the plot is clickable...................................................passed
+Then user click on the Plots in Gated Community.............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home page load verification" name="Navigate to East Facing Plot" time="16.508">
+<system-out><![CDATA[
+Given user on the Homepage..................................................passed
+Then click on plot..........................................................passed
+Then It displays presenting plots and lands in Bangalore....................passed
+When user clicks on East Facing Plots Explore button........................passed
+Then user goes to the East Facing Plots listing page........................passed
+And select on the New projects..............................................passed
+Then New projects page is loaded............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home page load verification" name="Navigate to See Plots from Investment Corridor" time="14.738">
+<system-out><![CDATA[
+Given the user is on the Homepage of the magicBricks........................passed
+When the user clicks on the plot option.....................................passed
+And click on the see plots1.................................................passed
+Then navigate to the plots page and click click on the seeplots2............passed
+]]></system-out>
+</testcase>
+<testcase classname="Home page load verification" name="Select city from the Excel Sheet - #1.1" time="33.757">
+<system-out><![CDATA[
+Given the user on the Homepage..............................................passed
+When the user clicks on the plot option.....................................passed
+Then enter the city in the search box 1 0...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home page load verification" name="Select city from the Excel Sheet - #1.2" time="30.362">
+<system-out><![CDATA[
+Given the user on the Homepage..............................................passed
+When the user clicks on the plot option.....................................passed
+Then enter the city in the search box 2 0...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home page load verification" name="Validate budget functionality in plot - #1.1" time="15.632">
+<system-out><![CDATA[
+Given user is on the home page..............................................passed
+And the user clicks on plot.................................................passed
+And user clicks Budget......................................................passed
+And the user reads price from the excel sheet 0 1...........................passed
+Then result is displayed....................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home page load verification" name="Validate budget functionality in plot - #1.2" time="15.726">
+<system-out><![CDATA[
+Given user is on the home page..............................................passed
+And the user clicks on plot.................................................passed
+And user clicks Budget......................................................passed
+And the user reads price from the excel sheet 0 2...........................passed
+Then result is displayed....................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Home page load verification" name="Validating with invalid city name" time="14.738">
+<system-out><![CDATA[
+Given user is on the home page..............................................passed
+And the user clicks on plot.................................................passed
+And enter the invalid city name.............................................passed
+Then error message is displayed.............................................passed
+]]></system-out>
+</testcase>
+</testsuite>
