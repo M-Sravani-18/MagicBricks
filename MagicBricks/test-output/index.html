@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\shanam\AppData\Local\Temp\testng-eclipse-286362681\testng-customsuite.xml</span>
+                    <span>C:\Users\v93\AppData\Local\Temp\testng-eclipse--1294043629\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 2 failed,   </span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,12 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;&quot;, &quot;validate MagicBricks website launch functionality&quot;)">runScenario("", "validate MagicBricks website launch functionality")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;&quot;, &quot;validate MagicBricks website launch functionality&quot;)">runScenario("", "validate MagicBricks website launch functionality")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can navigate from Rent dropdown  tp PG details page&quot;, &quot;Validate PG navigation flow on M...)">runScenario("Verify user can navigate from Rent dropdown  tp PG details page", "Validate PG navigation flow on M...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -131,42 +126,47 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;&quot;, &quot;validate MagicBricks website launch functionality&quot;)">
-                  </a> <!-- runScenario("", "validate MagicBricks website launch functionality") -->
+                  <a name="runScenario(&quot;Verify user can navigate from Rent dropdown  tp PG details page&quot;, &quot;Validate PG navigation flow on M...)">
+                  </a> <!-- runScenario("Verify user can navigate from Rent dropdown  tp PG details page", "Validate PG navigation flow on M...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("","validate MagicBricks website launch functionality")</span>
-                  <div class="stack-trace">io.cucumber.testng.UndefinedStepException: The step &apos;user enters the locality name from sheet 1 and 0&apos; is undefined.
-You can implement this step using the snippet(s) below:
-
-@When(&quot;user enters the locality name from sheet {int} and {int}&quot;)
-public void user_enters_the_locality_name_from_sheet_and(Integer int1, Integer int2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at ✽.user enters the locality name from sheet 1 and 0(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:66)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;&quot;, &quot;validate MagicBricks website launch functionality&quot;)">
-                  </a> <!-- runScenario("", "validate MagicBricks website launch functionality") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("","validate MagicBricks website launch functionality")</span>
-                  <div class="stack-trace">io.cucumber.testng.UndefinedStepException: The step &apos;user enters the locality name from sheet 1 and 1&apos; is undefined.
-You can implement this step using the snippet(s) below:
-
-@When(&quot;user enters the locality name from sheet {int} and {int}&quot;)
-public void user_enters_the_locality_name_from_sheet_and(Integer int1, Integer int2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at ✽.user enters the locality name from sheet 1 and 1(file:///C:/training/SprintMagicbricks/MagicBricks/./src/test/resources/Features/Profile.feature:66)
+                  <span class="parameters">("Verify user can navigate from Rent dropdown  tp PG details page","Validate PG navigation flow on MagicBricks")</span>
+                  <div class="stack-trace">io.cucumber.core.runner.DuplicateStepDefinitionException: Duplicate step definitions in com.stepDefinitionTestNG.ProfileLoc.the_user_clicks_on_Rent_tab() and com.stepDefinitionTestNG.Prolocal.the_user_clicks_on_Rent_tab()
+	at io.cucumber.core.runner.CachingGlue.lambda$prepareGlue$3(CachingGlue.java:313)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at io.cucumber.core.runner.CachingGlue.prepareGlue(CachingGlue.java:307)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -178,7 +178,7 @@ public void user_enters_the_locality_name_from_sheet_and(Integer int1, Integer i
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\shanam\AppData\Local\Temp\testng-eclipse-286362681\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\v93\AppData\Local\Temp\testng-eclipse--1294043629\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -235,20 +235,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(0, 3, 19348);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'runScenario')
-data.setCell(1, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(1, 3, 18239);
+data.setCell(0, 3, 113);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 37 seconds</span>
+              <span class="suite-total-time">Total running time: 113 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -276,24 +272,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.runner.TestRunnerTestNG</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@4a67b4ec)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@446c3920)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("", "validate MagicBricks website launch functionality")</span>
-                <span class="method-start">960 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("", "validate MagicBricks website launch functionality")</span>
-                <span class="method-start">20315 ms</span>
+                <span class="method-name">runScenario("Verify user can navigate from Rent dropdown  tp PG details page", "Validate PG navigation flow on M...)</span>
+                <span class="method-start">1235 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">38554 ms</span>
+                <span class="method-start">1361 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
