@@ -1,0 +1,63 @@
+
+@Locality
+Scenario: Navigate to first locality in New Delhi       # src/test/resources/Features/Login.feature:3
+  ✔ Given the user launches the MagicBricks homepage    # com.stepDefinitionTestNG.Profile.the_user_launches_the_magicbricks_homepage()
+  ✔ When the user clicks on the MB Advice section       # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_mb_advice_section()
+  ✔ And the user selects Localities in New Delhi page   # com.stepDefinitionTestNG.Profile.the_user_selects_localities_in_new_delhi_page()
+  ✔ And the user clicks on the first displayed locality # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_first_displayed_locality()
+  ✔ Then the first locality page is displayed           # com.stepDefinitionTestNG.Profile.the_first_locality_page_is_displayed()
+
+@CompareLocalities
+Scenario: validate locality details page contents         # src/test/resources/Features/Login.feature:11
+  ✔ Given the user launches the MagicBricks homepage      # com.stepDefinitionTestNG.Profile.the_user_launches_the_magicbricks_homepage()
+  ✔ When the user clicks on the MB Advice section         # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_mb_advice_section()
+  ✔ And the user clicks on Compare Localities             # com.stepDefinitionTestNG.Profile.the_user_clicks_on_compare_localities()
+  ✔ And the user clicks on New Projects in Bangalore      # com.stepDefinitionTestNG.Profile.the_user_clicks_on_new_projects_in_bangalore()
+  ✔ Then the New projects in Bangalore page should launch # com.stepDefinitionTestNG.Profile.the_new_projects_in_bangalore_page_should_launch()
+
+@Price/sqftfilter
+Scenario Outline: Validate price/sqft filter functionality on Localities in New Delhi page # src/test/resources/Features/Login.feature:29
+  ✔ Given the user launches the MagicBricks homepage                                       # com.stepDefinitionTestNG.Profile.the_user_launches_the_magicbricks_homepage()
+  ✔ When the user clicks on the MB Advice section                                          # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_mb_advice_section()
+  ✔ And the user selects Localities in New Delhi page                                      # com.stepDefinitionTestNG.Profile.the_user_selects_localities_in_new_delhi_page()
+  ✔ And the user clicks on the Price/sqrt filter option                                    # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_price_sqrt_filter_option()
+  ✔ And the user reads Min price values from Excel sheet 0 and row 1                       # com.stepDefinitionTestNG.Profile.the_user_reads_min_price_values_from_excel_sheet_and_row(java.lang.Integer,java.lang.Integer)
+  ✔ And the user clicks on the Done                                                        # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_done()
+  ✔ Then the result is displayed                                                           # com.stepDefinitionTestNG.Profile.the_result_is_displayed()
+
+@Price/sqftfilter
+Scenario Outline: Validate price/sqft filter functionality on Localities in New Delhi page # src/test/resources/Features/Login.feature:30
+  ✔ Given the user launches the MagicBricks homepage                                       # com.stepDefinitionTestNG.Profile.the_user_launches_the_magicbricks_homepage()
+  ✔ When the user clicks on the MB Advice section                                          # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_mb_advice_section()
+  ✔ And the user selects Localities in New Delhi page                                      # com.stepDefinitionTestNG.Profile.the_user_selects_localities_in_new_delhi_page()
+  ✔ And the user clicks on the Price/sqrt filter option                                    # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_price_sqrt_filter_option()
+  ✔ And the user reads Min price values from Excel sheet 0 and row 2                       # com.stepDefinitionTestNG.Profile.the_user_reads_min_price_values_from_excel_sheet_and_row(java.lang.Integer,java.lang.Integer)
+  ✔ And the user clicks on the Done                                                        # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_done()
+  ✔ Then the result is displayed                                                           # com.stepDefinitionTestNG.Profile.the_result_is_displayed()
+
+@Searchbox
+Scenario Outline: Validate Search box in Localities in New Delhi Page # src/test/resources/Features/Login.feature:44
+  ✔ Given the user launches the MagicBricks homepage                  # com.stepDefinitionTestNG.Profile.the_user_launches_the_magicbricks_homepage()
+  ✔ When the user clicks on the MB Advice section                     # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_mb_advice_section()
+  ✔ And the user selects Localities in New Delhi page                 # com.stepDefinitionTestNG.Profile.the_user_selects_localities_in_new_delhi_page()
+  ✔ And the user clicks on search box                                 # com.stepDefinitionTestNG.Profile.the_user_clicks_on_search_box()
+  ✔ And the user reads City from Excel sheet 1 and 1                  # com.stepDefinitionTestNG.Profile.the_user_reads_city_from_excel_sheet_and(java.lang.Integer,java.lang.Integer)
+  ✔ And the user clicks on the first displayed locality               # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_first_displayed_locality()
+  ✔ Then the locality page displays                                   # com.stepDefinitionTestNG.Profile.the_locality_page_displays()
+
+@Searchbox
+Scenario Outline: Validate Search box in Localities in New Delhi Page # src/test/resources/Features/Login.feature:45
+  ✔ Given the user launches the MagicBricks homepage                  # com.stepDefinitionTestNG.Profile.the_user_launches_the_magicbricks_homepage()
+  ✔ When the user clicks on the MB Advice section                     # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_mb_advice_section()
+  ✔ And the user selects Localities in New Delhi page                 # com.stepDefinitionTestNG.Profile.the_user_selects_localities_in_new_delhi_page()
+  ✔ And the user clicks on search box                                 # com.stepDefinitionTestNG.Profile.the_user_clicks_on_search_box()
+  ✔ And the user reads City from Excel sheet 1 and 2                  # com.stepDefinitionTestNG.Profile.the_user_reads_city_from_excel_sheet_and(java.lang.Integer,java.lang.Integer)
+  ✔ And the user clicks on the first displayed locality               # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_first_displayed_locality()
+  ✔ Then the locality page displays                                   # com.stepDefinitionTestNG.Profile.the_locality_page_displays()
+
+@Projects
+Scenario: Validate Projects in New Delhi Page           # src/test/resources/Features/Login.feature:51
+  ✔ Given the user launches the MagicBricks homepage    # com.stepDefinitionTestNG.Profile.the_user_launches_the_magicbricks_homepage()
+  ✔ When the user clicks on the MB Advice section       # com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_mb_advice_section()
+  ✔ And the user selects New Projects in New Delhi page # com.stepDefinitionTestNG.Profile.the_user_selects_new_projects_in_new_delhi_page()
+  ✔ Then the page should be displayed                   # com.stepDefinitionTestNG.Profile.the_page_should_be_displayed()
