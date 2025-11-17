@@ -40,16 +40,15 @@ public class HomePage extends BaseSteps {
     public void hoverOnRentDropdown() {
 //        Actions actions = new Actions(driver);
 //        actions.moveToElement(rentDropdown).perform();
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
         wait.until(ExpectedConditions.visibilityOf(rentDropdown));
         new Actions(driver).moveToElement(rentDropdown).perform();
 
     }
 
     public void clickPgInBangalore() throws InterruptedException {
-      	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-      	Thread.sleep(2000);;
-    	wait.until(ExpectedConditions.visibilityOf(pgInBangaloreOption));
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    //	wait.until(ExpectedConditions.visibilityOf(pgInBangaloreOption));
     	//wait.until(ExpectedConditions.elementToBeClickable(pgInBangaloreOption)).click();
     	
     	//Thread.sleep(2000);

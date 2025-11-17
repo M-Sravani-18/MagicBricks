@@ -3,6 +3,7 @@ package com.pages;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,63 +34,68 @@ public class LocalPage extends BaseSteps{
         PageFactory.initElements(driver, this);
     }
 	
+//    
+//    @FindBy(xpath = "//*[@id=\"keyword\"]")
+//    private WebElement locality;
+//    
     
-    @FindBy(xpath = "//input[contains(@placeholder,'Add More')]")
-    private WebElement locality;
+     @FindBy(css = "input#keyword")
+	  WebElement locality;
+     
+		@FindBy(css = "div.mb-search__btn")
+		WebElement searchButton;
     
-    
-    @FindBy(xpath = "//*[@id=\"topLocalitiesDiv\"]/div[1]") 
-    private WebElement firstSuggestion;
-    
-    @FindBy(xpath = "//*[@id=\"topLocalitiesDiv\"]/div[2]") 
-    private WebElement secondSuggestion;
-
-    
-    @FindBy(xpath = "//*[@id=\"topLocalitiesDiv\"]/div[3]") 
-    private WebElement thirdSuggestion;
 
 
     @FindBy(xpath = "//div[text()='What kind of PG accomodation are you looking for?']") 
     private List<WebElement> pgListings;
 
     
-    public void enterLocality(String localityText) {
+    public boolean enterLocality(String localityText) {
+    	try {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+        wait.until(ExpectedConditions.elementToBeClickable(locality));
         wait.until(ExpectedConditions.visibilityOf(locality));
+        locality.clear();
         locality.click();
         locality.sendKeys(localityText);
+      
+        return true;
+    	}
+    	catch(Exception e) {
+    		return false;
+        
+		
+		
+    	}
     }
     
- 
-    public void selectFirstSuggestion() {
-    	//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    	//        wait.until(ExpectedConditions.elementToBeClickable(firstSuggestion));
-    	firstSuggestion.click();
-    }
+    
+    
+    public boolean searchButton() throws InterruptedException
+    {
+    	
+    	
+    	
+    	try
+		{
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+			//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));//
+			wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+			searchButton.click();
+			BaseSteps.sleep(5000);
+			return true;
+		}
 
-    public void selectSecondSuggestion() {
-    	//      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    	//      wait.until(ExpectedConditions.elementToBeClickable(firstSuggestion));
-    	secondSuggestion.click();
-    }
-    public void selectThirdSuggestion() {
-    	//      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    	//      wait.until(ExpectedConditions.elementToBeClickable(firstSuggestion));
-    	thirdSuggestion.click();
-    }
-
+		catch (Exception e) {
+			System.out.println("Error clicking Search button: " + e.getMessage());
+			return false;
+		}
+  }
    
-//
-//    public boolean isPgListDisplayed() {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//        try {
-//            wait.until(ExpectedConditions.visibilityOfAllElements(pgListings));
-//            return !pgListings.isEmpty();
-//        } catch (TimeoutException e) {
-//            return false;
-//        }
-//    }
-//    
+    
+ 
+
   public static boolean getPageTitle() {
     	
         try {
