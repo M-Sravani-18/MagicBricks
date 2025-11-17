@@ -103,15 +103,22 @@ public class SearchPage extends BaseSteps{
 	
 
 	
-	//==================================================================================================================//
-	//                                                4 Scenario                                                        //
-	//=================================================================================================================//
+	//================================================================  Scenario-4 ================================================================================
 	
-//	@FindBy(xpath = "//input[contains(@class,'mb-search__input')]")
-//	WebElement cityInput;
-//	
+	@FindBy(xpath = "//input[contains(@class,'mb-search__input')]")
+	WebElement city;
+	
+	
+	@FindBy(xpath = "div.mb-search__tag-close[data-text='Bangalore']")
+	WebElement close;
+		
 	@FindBy(css = "div.mb-search__btn")
 	WebElement searchButton;
+	
+	@FindBy(xpath = "(//a[@href='https://www.magicbricks.com/agricultural-land-for-sale-in-bangalore-pppfs' and .//div[text()='Agriculture Land']])[1]")
+	WebElement 	agriculture;
+	
+	
 	
       public void enteringCityname(String cityName) throws InterruptedException
       {
@@ -120,15 +127,15 @@ public class SearchPage extends BaseSteps{
     	    JavascriptExecutor js = (JavascriptExecutor) driver;
 
     	    // Step 1: Click into the city input field
-    	    WebElement cityInput = wait.until(ExpectedConditions.elementToBeClickable(
-    	        By.xpath("//input[contains(@class,'mb-search__input')]")));
+    	    WebElement cityInput = wait.until(ExpectedConditions.elementToBeClickable(city));
+    	      
     	    cityInput.click();
     	    Thread.sleep(500); // allow UI to activate
 
     	    // Step 2: Clear Bangalore tag if present
     	    try {
-    	        WebElement closeTag = wait.until(ExpectedConditions.elementToBeClickable(
-    	            By.cssSelector("div.mb-search__tag-close[data-text='Bangalore']")));
+    	        WebElement closeTag = wait.until(ExpectedConditions.elementToBeClickable(close));
+    	           
     	        js.executeScript("arguments[0].click();", closeTag);
     	        System.out.println(" Cleared Bangalore tag");
     	        Thread.sleep(500);
@@ -141,97 +148,77 @@ public class SearchPage extends BaseSteps{
     	    cityInput.sendKeys(Keys.DELETE);
     	    cityInput.sendKeys(cityName);
     	    Thread.sleep(2000); // wait for dropdown
+    	    String actualCity = cityInput.getAttribute("value").trim();
+    	    Assert.assertEquals(actualCity, cityName.trim(), "City input field was not updated correctly.");
     	    cityInput.sendKeys(Keys.CONTROL + "a");
     	    cityInput.sendKeys(Keys.DELETE);
-    	    
-    	    driver.findElement(By.xpath("(//a[@href='https://www.magicbricks.com/agricultural-land-for-sale-in-bangalore-pppfs' and .//div[text()='Agriculture Land']])[1]")).click();
-    	    
- 
+    	    agriculture.click();
+    	   
     	  
     	    }
 
-    	  
-    	  
-  
-      public boolean clickSearch()
-		{
-			try
-			{
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-		
-				wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-				searchButton.click();
-				BaseSteps.sleep(5000);
-				return true;
-			}
+    	    
 
-			catch (Exception e) {
-				System.out.println("Error clicking Search button: " + e.getMessage());
-				return false;
-			}
-
-		}
+     
+      
+    //================================================================  Scenario-5 ================================================================================
+  	     
+      @FindBy(xpath = "//div[@class='mb-search__title']//span[text()='Budget']")
+  	WebElement budget;
+  	
+      
+      @FindBy(css = "div.mb-search__btn")
+    	WebElement search;
       
       
+    	
+  	
       
       
-      
-      
-      //======================================================================================
-      //                    5th Scenario                                                   
-      //======================================================================================
       public void clickPlot1() {
     	    plotclick.click();
     	}
 
     	public void clickBudget() {
-    	    WebElement budgetButton = driver.findElement(By.xpath("//div[@class='mb-search__title']//span[text()='Budget']")); // Adjust locator
-    	    budgetButton.click();
+    	 
+    	    budget.click();
     	}
+    	
+    	
+    	
     	
     	public void enterBudget(String budget) {
     		
-    		// Locate the budget input field (adjust the ID as needed)
-    		 WebElement budgetInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".buy_budget_lbl")));
-    	   // WebElement  = driver.findElement(By.xpath("//*[@id=\"commercialIndex\"]/section[1]/div/div[1]/div[3]/div[4]/div[1]")); // Replace with actual ID
+    		
+    		
+    		String budgetXPath = String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);
 
-    	    // Clear and enter the budget value
-    	   // budgetInput.clear();
+    		WebElement budgetElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(budgetXPath)));
+    		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", budgetElement);
+    		((JavascriptExecutor) driver).executeScript("arguments[0].click();", budgetElement);
+
+    		System.out.println("Budget selected: " + budget);
+
+    		
+    	
+
+
+    	}
+    	
+    	
+    	public void clickSearch() {
+    			
     		 
-    		 
-    		  //Step 2: Select budget dynamically
- 	        String budgetXPath = "";
-
- 	        if (budget.equalsIgnoreCase(budget)) {
- 	        	budgetXPath = String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);  
-
- 	            //budgetXPath = "//li[contains(text(),'5 Lac')]";
- 	        } else if (budget.equalsIgnoreCase(budget)) {
- 	        	  budgetXPath=	String.format("//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹%s')]", budget);  
-
- 	      // = "//div[contains(@class,'mb-search__min-max__item') and contains(text(),'₹10 Lac')]";
- 	        	  
-
- 	            //budgetXPath = "//div[contains(text(),'10 Lac')]";
- 	        } else {
- 	            budgetXPath = String.format("//*[contains(text(),'%s')]", budget);
- 	        }
-
- 	        WebElement budgetElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(budgetXPath)));
- 	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", budgetElement);
- 	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", budgetElement);
- 	        System.out.println(" Budget selected: " + budget);
+  	       WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(search));
+ 	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", searchBtn);
+ 	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", searchBtn);
  	        
- 	        
- 	       // Step 3: Click the search button
-	        WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.mb-search__btn")));
-	       // WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.mb-search__btn")));
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", searchBtn);
-	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", searchBtn);
-	       // System.out.println("Search clicked for: " + city + " - " + budget);
-//	        driver.findElement(By.cssSelector("span.mb-srp__loanelgb__cta")).click();
-//			homepage.clickOnNewProjects();
-//			
+ 	       System.out.println(" Search button clicked");
+// 	       System.out.println("Current URL: " +driver.getCurrentUrl());
+// 	       String ExpectedURL=prop.getProperty("expectedURL");
+// 	       Assert.assertTrue(driver.getCurrentUrl().equals(ExpectedURL));
+// 	       
+    		
     	}
      
 	

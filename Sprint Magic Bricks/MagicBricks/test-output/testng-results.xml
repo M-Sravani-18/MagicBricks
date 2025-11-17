@@ -1,27 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-15T20:40:32 IST" name="Default suite" finished-at="2025-11-15T20:41:13 IST" duration-ms="41066">
+  <suite started-at="2025-11-16T21:01:56 IST" name="Default suite" finished-at="2025-11-16T21:04:17 IST" duration-ms="140928">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-11-15T20:40:32 IST" name="Default test" finished-at="2025-11-15T20:41:13 IST" duration-ms="41066">
+    <test started-at="2025-11-16T21:01:56 IST" name="Default test" finished-at="2025-11-16T21:04:17 IST" duration-ms="140928">
       <class name="com.runner.TestRunnerTestNG">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-15T20:40:32 IST" name="setUpClass" finished-at="2025-11-15T20:40:33 IST" duration-ms="1270" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:01:56 IST" name="setUpClass" finished-at="2025-11-16T21:01:57 IST" duration-ms="1141" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1eb85a47]]>
+                <![CDATA[org.testng.TestRunner@7ec508e6]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-15T20:40:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-15T20:40:54 IST" duration-ms="21012" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:01:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-16T21:02:13 IST" duration-ms="15659" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that homepage loads successfully"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Home page load verification"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:02:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-16T21:02:29 IST" duration-ms="15434" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Navigate to East Facing Plot"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Home page load verification"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:02:29 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-16T21:02:43 IST" duration-ms="14600" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Navigate to See Plots from Investment Corridor"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Home page load verification"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:02:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-16T21:03:16 IST" duration-ms="33175" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Select city from the Excel Sheet"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Home page load verification"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:03:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-16T21:03:48 IST" duration-ms="32169" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Select city from the Excel Sheet"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Home page load verification"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:03:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-16T21:04:03 IST" duration-ms="14804" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,7 +117,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-15T20:40:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-15T20:41:13 IST" duration-ms="18663" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:04:03 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-16T21:04:17 IST" duration-ms="13837" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -53,7 +133,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-15T20:41:13 IST" name="tearDownClass" finished-at="2025-11-15T20:41:13 IST" duration-ms="59" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-16T21:04:17 IST" name="tearDownClass" finished-at="2025-11-16T21:04:17 IST" duration-ms="42" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

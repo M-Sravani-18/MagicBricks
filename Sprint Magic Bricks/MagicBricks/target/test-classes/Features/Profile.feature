@@ -7,7 +7,7 @@ Then the homepage should load successfully
 And the application title should be displayed
 And the plot is displayed
 And the plot is clickable
-When user click on the Plots in Gated Community
+Then user click on the Plots in Gated Community
 
 @Scenario2
 Scenario: Navigate to East Facing Plot
@@ -28,10 +28,10 @@ Then navigate to the plots page and click click on the seeplots2
 
 
 @Scenario4
-Scenario: Select budget from Excel2
+Scenario: Select city from the Excel Sheet
 Given the user on the Homepage
 When the user clicks on the plot option
-And enter budget in the budget box <row> <sheet>
+Then  enter the city in the search box <row> <sheet>
 
 Examples:
   | row | sheet |
